@@ -1,0 +1,69 @@
+Building for debugging...
+[0/14] Write sources
+[1/14] Copying Fixtures
+[1/14] Write sources
+[3/14] Write swift-version--CCBDF3B3BBB4959.txt
+[5/17] Compiling ForgeCore ArchiveStorage.swift
+[6/17] Compiling ForgeCore HistoryImporter.swift
+[7/17] Emitting module ForgeCore
+[8/18] Compiling ForgeCore Models.swift
+[9/19] Wrapping AST for ForgeCore for debugging
+[11/22] Compiling ForgeCoreTests resource_bundle_accessor.swift
+[12/22] Emitting module ForgeCoreTests
+[13/22] Compiling ForgeCoreTests ForgeCoreTests.swift
+[14/23] /workspace/Forge-public/.build/x86_64-unknown-linux-gnu/debug/ForgeCorePackageDiscoveredTests.derived/all-discovered-tests.swift
+[15/23] Write sources
+[16/23] Wrapping AST for ForgeCoreTests for debugging
+[18/26] Compiling ForgeCorePackageDiscoveredTests ForgeCoreTests.swift
+[19/26] Emitting module ForgeCorePackageDiscoveredTests
+[20/26] Compiling ForgeCorePackageDiscoveredTests all-discovered-tests.swift
+[21/27] /workspace/Forge-public/.build/x86_64-unknown-linux-gnu/debug/ForgeCorePackageTests.derived/runner.swift
+[22/27] Write sources
+[23/27] Wrapping AST for ForgeCorePackageDiscoveredTests for debugging
+[25/29] Compiling ForgeCorePackageTests runner.swift
+[26/29] Emitting module ForgeCorePackageTests
+[27/30] Wrapping AST for ForgeCorePackageTests for debugging
+[28/30] Write Objects.LinkFileList
+[29/30] Linking ForgeCorePackageTests.xctest
+Build complete! (7.88s)
+Test Suite 'All tests' started at 2026-10-03 13:20:33.166
+Test Suite 'debug.xctest' started at 2026-10-03 13:20:33.167
+Test Suite 'ForgeCoreTests' started at 2026-10-03 13:20:33.167
+Test Case 'ForgeCoreTests.testBundledSampleHistory' started at 2026-10-03 13:20:33.167
+Imported 6 entries, 12 exercises, 36 explicit sets, 6 entries with explicit full dates.
+Test Case 'ForgeCoreTests.testBundledSampleHistory' passed (0.019 seconds)
+Test Case 'ForgeCoreTests.testDefaultProgramIsSundayFirstAndOverridable' started at 2026-10-03 13:20:33.186
+Test Case 'ForgeCoreTests.testDefaultProgramIsSundayFirstAndOverridable' passed (0.101 seconds)
+Test Case 'ForgeCoreTests.testExactDatesDoNotInferYears' started at 2026-10-03 13:20:33.287
+Test Case 'ForgeCoreTests.testExactDatesDoNotInferYears' passed (0.003 seconds)
+Test Case 'ForgeCoreTests.testInvalidBackupCannotOverwriteStore' started at 2026-10-03 13:20:33.290
+Test Case 'ForgeCoreTests.testInvalidBackupCannotOverwriteStore' passed (0.003 seconds)
+Test Case 'ForgeCoreTests.testJSONRoundTripKeepsHistoryAndNotes' started at 2026-10-03 13:20:33.293
+Test Case 'ForgeCoreTests.testJSONRoundTripKeepsHistoryAndNotes' passed (0.003 seconds)
+Test Case 'ForgeCoreTests.testNewSessionsTakePrecedenceForPreviousWeights' started at 2026-10-03 13:20:33.296
+Test Case 'ForgeCoreTests.testNewSessionsTakePrecedenceForPreviousWeights' passed (0.001 seconds)
+Test Case 'ForgeCoreTests.testRepeatedLiftStartsUndatedBlock' started at 2026-10-03 13:20:33.297
+Test Case 'ForgeCoreTests.testRepeatedLiftStartsUndatedBlock' passed (0.002 seconds)
+Test Case 'ForgeCoreTests.testSetMultipliersAndAmbiguousNotation' started at 2026-10-03 13:20:33.299
+Test Case 'ForgeCoreTests.testSetMultipliersAndAmbiguousNotation' passed (0.002 seconds)
+Test Case 'ForgeCoreTests.testStorageIsAtomicAndKeepsPriorValidRevision' started at 2026-10-03 13:20:33.302
+Test Case 'ForgeCoreTests.testStorageIsAtomicAndKeepsPriorValidRevision' passed (0.006 seconds)
+Test Case 'ForgeCoreTests.testSundayWeekBoundary' started at 2026-10-03 13:20:33.308
+Test Case 'ForgeCoreTests.testSundayWeekBoundary' passed (0.001 seconds)
+Test Case 'ForgeCoreTests.testTrainingMaxBeforeSchemeAndDecimalComma' started at 2026-10-03 13:20:33.309
+Test Case 'ForgeCoreTests.testTrainingMaxBeforeSchemeAndDecimalComma' passed (0.002 seconds)
+Test Case 'ForgeCoreTests.testTrainingMaxIsNeverCountedAsLiftedWeight' started at 2026-10-03 13:20:33.310
+Test Case 'ForgeCoreTests.testTrainingMaxIsNeverCountedAsLiftedWeight' passed (0.001 seconds)
+Test Case 'ForgeCoreTests.testUnreviewedEntriesAreOptInAndChronologyIsExplicit' started at 2026-10-03 13:20:33.312
+Test Case 'ForgeCoreTests.testUnreviewedEntriesAreOptInAndChronologyIsExplicit' passed (0.003 seconds)
+Test Case 'ForgeCoreTests.testVolumeAndEstimatedMaxExcludeWarmupsAndIncompleteSets' started at 2026-10-03 13:20:33.314
+Test Case 'ForgeCoreTests.testVolumeAndEstimatedMaxExcludeWarmupsAndIncompleteSets' passed (0.001 seconds)
+Test Suite 'ForgeCoreTests' passed at 2026-10-03 13:20:33.315
+	 Executed 14 tests, with 0 failures (0 unexpected) in 0.148 (0.148) seconds
+Test Suite 'debug.xctest' passed at 2026-10-03 13:20:33.315
+	 Executed 14 tests, with 0 failures (0 unexpected) in 0.148 (0.148) seconds
+Test Suite 'All tests' passed at 2026-10-03 13:20:33.315
+	 Executed 14 tests, with 0 failures (0 unexpected) in 0.148 (0.148) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.0.3 (18c42c19cac3faf)
+✔ Test run with 0 tests passed after 0.001 seconds.

@@ -1,0 +1,1269 @@
+{
+  "historyImported" : true,
+  "originalHistory" : "# Example training history\n# Fictional demonstration data; no personal training records.\n\n01.09.26\nPush\nBP 5\/5\/5 90\n3x5x60\nIDP 3x8x20\n\n——\n02.09.26\nPull\nBarbell row\n3x8x40\nLat pulldown\n3x10x45\n\n——\n03.09.26\nLegs\nSquat 5\/3\/1 110\n5x70 3x80 1x90\nLeg press\n3x10x100\n\n——\n05.09.26\nUpper\nBP 3\/3\/3 90\n3x5x62.5\nOHP\n3x8x25\n\n——\n06.09.26\nLower\nDL 5\/3\/1 140\n5x90 3x105 1x120\nLeg curl\n3x12x30\n\n——\n08.09.26\nPush\nBP 5\/3\/1 92.5\n3x5x65\nIDP\n3x8x22\n",
+  "program" : [
+    {
+      "exercises" : [
+        {
+          "id" : "CF16D444-1E27-4F76-BE54-59AD084D29CE",
+          "name" : "Bench press",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "F0E2D8CC-680B-4B86-8EE0-0F0B4D34D374",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "90E9C4F5-2C60-464F-B9F1-05E62535C53C",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "0B3CFFFA-3761-4C12-97A9-7C35B7DDF302",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "C64ADCB4-0E3B-48D7-92BB-FA0C95B7BACC",
+          "name" : "Incline dumbbell press",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "0E702711-442C-4368-8C4A-863D5D8AD772",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "938A061A-3537-40A2-8D65-79C136527CF5",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "6ACF0A90-E02F-4320-96E5-774EA1F3C06C",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "7E2D49CD-2738-4AD9-AEE6-24378B0CD355",
+          "name" : "Shoulder press",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "39720C60-8B77-410E-A5D0-D9079E3971A5",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "8F0D825C-36E8-4BF3-B58B-EF5AEE0CF72A",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "67863ABD-AEAF-4C53-867D-73CA34F4F404",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "98694199-A28D-4E52-8289-9F458A0E3842",
+          "name" : "Lateral raises",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "F5C12681-079E-407D-948F-2FA62AB4B713",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "19DC14B0-8308-43C3-BB61-AE1921905465",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "40A9A430-1E6A-427E-B665-D6A11E1DFBB1",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "D2822572-B9B4-46F1-BE96-85D25DD001C5",
+          "name" : "Triceps pushdown",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "FBC60872-118F-4734-A490-9DA13993DEB9",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "B16CD6CD-4DF3-460A-8F15-BC0C713A5318",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "625E2B52-097D-485A-BF21-72C56581B158",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        }
+      ],
+      "split" : "Push",
+      "weekday" : 1
+    },
+    {
+      "exercises" : [
+        {
+          "id" : "E717500F-2588-45F3-8E77-115DC504C993",
+          "name" : "Lat pulldown",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "5F12731F-2520-44B9-B6AA-BBC62B50FF2C",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "6E37827D-3929-462C-91FC-F709BF5DD228",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "AC3D5C42-0A7A-43EB-9D51-E82D4516B9CB",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "F268A43A-5B71-4896-B184-AAAD97A0485D",
+          "name" : "Barbell row",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "2142A083-63AB-4C65-970B-061EEB123BD9",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "46056220-5F92-46A7-A644-CCCA035E7DFA",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "EC18F13D-DB36-4618-A209-708D7E72E7E5",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "D8225480-50BE-4CA5-9808-F98B09B2CC1A",
+          "name" : "Cable row",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "125B5722-59EB-4EF9-9F97-CF9E09CBF355",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "38E1CE9F-55AD-46BA-B839-BB844AD4AB52",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "18946315-37F0-4012-81B2-FAE9E40C1500",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "282688F6-4BB1-4CFB-99C8-CD39D3C58C8F",
+          "name" : "Biceps curl",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "9FDDE742-1885-4562-8EF4-1504124A1C0B",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "82B37D0D-FDC9-4FA3-ADC8-000E43D82094",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "CAE84C7C-3EBC-4E9E-B869-5C81C1426FA6",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        }
+      ],
+      "split" : "Pull",
+      "weekday" : 2
+    },
+    {
+      "exercises" : [
+        {
+          "id" : "EEA57CE0-FFCB-4580-91C7-96FD0FDCBABA",
+          "name" : "Squat",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "F9AA77C6-B8C0-491E-BA8E-D59CCAF6C0EE",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "5F1A9ED9-4064-4FD4-805A-F4C3771AEEBF",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "DCF85585-5915-4BEE-9062-A8465F6681D4",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "11D14B7F-A79C-4C9F-A37F-C60E69C6CD90",
+          "name" : "Leg press",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "BFC66EDC-BD6B-4A18-9AE8-2654E56DC745",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "6A4A3EBA-12E3-4FD6-AFAC-89110E78B9CC",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "B06EE434-BB4A-435E-914A-AACBA90A518F",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "2C73C694-3E5C-4AC8-8741-8D667F24B160",
+          "name" : "Leg curl",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "A55BEED6-E275-477A-B30E-CB470F4E4B53",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "8F21056B-F96A-4770-88F5-AEE15E1430F5",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "3380980B-B9E4-44B3-89BD-454409046289",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "423F14D7-9111-4D44-956B-605F8D3CD373",
+          "name" : "Leg extension",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "0B074D76-0D49-4ED7-B813-F1C6FCE3972C",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "C19E9C94-1597-4AB9-B948-D010A43F19E2",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "FF8B1611-4951-41A4-87DF-E810CEFF1838",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "A43CFDB0-D5C9-415C-AB26-E2097D94750D",
+          "name" : "Calf raises",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "0EF977D5-F078-4BC3-B29C-611EB01E9E3D",
+              "note" : "",
+              "reps" : 15,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "D7E7E4F5-EA69-4367-B7F8-FE04183D4E84",
+              "note" : "",
+              "reps" : 15,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "D20A583E-40E8-412C-9192-D61C93E6EEB7",
+              "note" : "",
+              "reps" : 15,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        }
+      ],
+      "split" : "Legs",
+      "weekday" : 3
+    },
+    {
+      "exercises" : [
+
+      ],
+      "split" : "Rest",
+      "weekday" : 4
+    },
+    {
+      "exercises" : [
+        {
+          "id" : "A2916454-C471-42F6-B6F1-1294D6198E33",
+          "name" : "Bench press",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "12E2434D-6B9B-40DD-B8F0-07A20F121160",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "966C1F79-5A4E-40AB-AA5E-47CE930D7084",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "A7D44993-9540-4CAC-BBB8-DD463710F7FE",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "CDF0074F-D6EB-468E-94C1-30B3097F69B2",
+          "name" : "Lat pulldown",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "17BE3966-9D95-4200-B359-FF17D27A7030",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "8479F251-7C0A-4C9E-9FE1-4BF31BEB64D7",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "F8B3C7B2-011E-445E-BFD2-889DA92F0AB0",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "74506BC6-F65D-4B6F-A002-E9C54ADFE297",
+          "name" : "Incline dumbbell press",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "82A5A659-F7EB-4D0A-BA7B-1471E450F4F0",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "2D174B99-2EE3-41BC-BD3E-4EC83176D06C",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "BC258009-B63B-41B3-AFAF-3AA9600A9179",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "1CC5FC85-E67A-489A-A955-DFF2B2B5BCF8",
+          "name" : "Cable row",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "F638CF95-620B-4333-8067-C7E8BDD1FAFC",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "E6F61967-9FD1-458C-B170-117932ACEF9F",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "421DC836-59EF-49F4-8874-B26FD2708DEB",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "FDE3318F-E868-485C-AE35-284CCD5B1410",
+          "name" : "Lateral raises",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "C9789776-BF03-43F2-A6A3-6D59B8B107C7",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "F456EC3D-FD33-461C-89A0-7540F81F1EA8",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "89631E0C-D2F7-4308-99D2-B69963E580EC",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        }
+      ],
+      "split" : "Upper",
+      "weekday" : 5
+    },
+    {
+      "exercises" : [
+        {
+          "id" : "C6CE0909-CDA1-40FB-A2E6-54F30BF396F1",
+          "name" : "Deadlift",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "B2C6B48C-7F30-41EB-A1B7-CDC3BC67F8E1",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "DA2DAC3F-467E-4065-A917-AC822EB413B3",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "1F2D64F5-41CD-4064-9768-169B0DC21F9A",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "8706293C-852D-4F46-9A93-0169BCC61270",
+          "name" : "Bulgarian split squat",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "08F155C4-FDF1-44E8-8960-8FD24E1D9A92",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "45D40C8C-4430-49A1-BEC0-CBB604BA2D32",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "CC0C9C8C-C4D1-4C0E-B427-6089A0163965",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "35D08E89-72F3-4167-8BB6-13E23D9CE644",
+          "name" : "Leg curl",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "2EA1BDE3-2337-4B0F-8E80-BE2074238160",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "1041938E-3071-4CA5-8695-A448A6345961",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "DD35C997-DC77-4997-A8F8-DD56DE59039B",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "E8005183-7FFF-4564-A076-B39A956FA6CE",
+          "name" : "Leg extension",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "F314B196-D29C-4F2A-97B6-E0BEDD867FEB",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "C59BCF86-68C6-44BB-A322-B4AA30A990F6",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "1B693446-3173-4DD4-82BC-8430B50A7187",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        },
+        {
+          "id" : "9506D722-161E-4CFD-9AF0-55825CED4D3E",
+          "name" : "Calf raises",
+          "note" : "",
+          "sets" : [
+            {
+              "completed" : false,
+              "id" : "9839B394-008B-4C23-8AA3-3E43962FBA9B",
+              "note" : "",
+              "reps" : 15,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "D3A9FE5E-4B45-4450-8ED4-70337041AADF",
+              "note" : "",
+              "reps" : 15,
+              "warmup" : false,
+              "weight" : 0
+            },
+            {
+              "completed" : false,
+              "id" : "C185D5ED-2968-4882-883B-249E9A9A90F1",
+              "note" : "",
+              "reps" : 15,
+              "warmup" : false,
+              "weight" : 0
+            }
+          ]
+        }
+      ],
+      "split" : "Lower",
+      "weekday" : 6
+    },
+    {
+      "exercises" : [
+
+      ],
+      "split" : "Rest",
+      "weekday" : 7
+    }
+  ],
+  "schemaVersion" : 1,
+  "sessions" : [
+    {
+      "date" : 809956800,
+      "durationSeconds" : 0,
+      "exercises" : [
+        {
+          "id" : "0B25ACFA-DF6F-4733-9F17-8D1BC086D90F",
+          "name" : "Bench press",
+          "note" : "BP 5\/5\/5 90\n3x5x60",
+          "scheme" : "5\/5\/5",
+          "sets" : [
+            {
+              "completed" : true,
+              "id" : "8E6696E9-4C06-41C8-923B-1BE7D146C2DE",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 60
+            },
+            {
+              "completed" : true,
+              "id" : "3BADEB77-A925-4A3C-A580-3DC99CCFAAF9",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 60
+            },
+            {
+              "completed" : true,
+              "id" : "ECAF7689-52F7-41C8-A929-4A651473FBAC",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 60
+            }
+          ],
+          "trainingMax" : 90
+        },
+        {
+          "id" : "1AA6BC63-DF66-4027-B4F2-CA9961CC56EF",
+          "name" : "Incline dumbbell press",
+          "note" : "IDP 3x8x20",
+          "sets" : [
+            {
+              "completed" : true,
+              "id" : "992716A3-615E-4006-BB81-A1FDACAD0E45",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 20
+            },
+            {
+              "completed" : true,
+              "id" : "3997693D-C890-4A8C-922B-7F59E0D6FEA2",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 20
+            },
+            {
+              "completed" : true,
+              "id" : "2C3D0179-6BB8-4DFE-A269-32C111D26660",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 20
+            }
+          ]
+        }
+      ],
+      "finished" : true,
+      "id" : "8475BDC3-020D-44FD-95CE-B73D5705220F",
+      "needsReview" : true,
+      "note" : "",
+      "rawSource" : "01.09.26\nPush\nBP 5\/5\/5 90\n3x5x60\nIDP 3x8x20\n",
+      "sourceDate" : "01.09.26",
+      "sourceOrder" : 1,
+      "split" : "Push",
+      "title" : ""
+    },
+    {
+      "date" : 810043200,
+      "durationSeconds" : 0,
+      "exercises" : [
+        {
+          "id" : "AEC8D417-43E7-406F-B649-AF48198B0396",
+          "name" : "Barbell row",
+          "note" : "3x8x40",
+          "sets" : [
+            {
+              "completed" : true,
+              "id" : "C57A8C07-7226-49EE-AA21-5867907F169C",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 40
+            },
+            {
+              "completed" : true,
+              "id" : "906BB41F-2135-4BE8-A720-B80647E166EA",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 40
+            },
+            {
+              "completed" : true,
+              "id" : "7923072F-21FC-4D88-9FD4-374DA062718C",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 40
+            }
+          ]
+        },
+        {
+          "id" : "E43FF972-BADE-4C8C-815E-3CAE18E4D1AF",
+          "name" : "Lat pulldown",
+          "note" : "3x10x45",
+          "sets" : [
+            {
+              "completed" : true,
+              "id" : "D9EAACE7-8ABB-4DC2-8BD6-A05AACBFDF8C",
+              "note" : "",
+              "reps" : 10,
+              "warmup" : false,
+              "weight" : 45
+            },
+            {
+              "completed" : true,
+              "id" : "E2DA4319-6512-4615-8D74-549B2035FDC5",
+              "note" : "",
+              "reps" : 10,
+              "warmup" : false,
+              "weight" : 45
+            },
+            {
+              "completed" : true,
+              "id" : "BA6EFE0B-DCDA-44BF-B7C8-C4D171413B6D",
+              "note" : "",
+              "reps" : 10,
+              "warmup" : false,
+              "weight" : 45
+            }
+          ]
+        }
+      ],
+      "finished" : true,
+      "id" : "580EC6B1-E97A-4536-8877-962C9BF86B46",
+      "needsReview" : true,
+      "note" : "",
+      "rawSource" : "02.09.26\nPull\nBarbell row\n3x8x40\nLat pulldown\n3x10x45\n",
+      "sourceDate" : "02.09.26",
+      "sourceOrder" : 2,
+      "split" : "Pull",
+      "title" : ""
+    },
+    {
+      "date" : 810129600,
+      "durationSeconds" : 0,
+      "exercises" : [
+        {
+          "id" : "A701DD7C-12E1-4B88-B8D5-08C6FA036438",
+          "name" : "Squat",
+          "note" : "Squat 5\/3\/1 110\n5x70 3x80 1x90",
+          "scheme" : "5\/3\/1",
+          "sets" : [
+            {
+              "completed" : true,
+              "id" : "46CAB1B7-78F5-43AA-BEB3-49BA9992BA59",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 70
+            },
+            {
+              "completed" : true,
+              "id" : "7180CCD7-1D8F-46EE-8C19-45FD0A368B29",
+              "note" : "",
+              "reps" : 3,
+              "warmup" : false,
+              "weight" : 80
+            },
+            {
+              "completed" : true,
+              "id" : "479B57B9-A263-4B83-BE85-4452F299A413",
+              "note" : "",
+              "reps" : 1,
+              "warmup" : false,
+              "weight" : 90
+            }
+          ],
+          "trainingMax" : 110
+        },
+        {
+          "id" : "EAB96C8B-31C2-4CC2-A3DF-0C7F05A5DE05",
+          "name" : "Leg press",
+          "note" : "3x10x100",
+          "sets" : [
+            {
+              "completed" : true,
+              "id" : "B4A730A2-9902-4972-B850-7D59BF695357",
+              "note" : "",
+              "reps" : 10,
+              "warmup" : false,
+              "weight" : 100
+            },
+            {
+              "completed" : true,
+              "id" : "5F4BBC23-38FB-4548-ACFC-4D205C47CE6D",
+              "note" : "",
+              "reps" : 10,
+              "warmup" : false,
+              "weight" : 100
+            },
+            {
+              "completed" : true,
+              "id" : "DB28E099-025F-49A5-9EDF-E6932261B4B9",
+              "note" : "",
+              "reps" : 10,
+              "warmup" : false,
+              "weight" : 100
+            }
+          ]
+        }
+      ],
+      "finished" : true,
+      "id" : "DEC0B345-8353-408A-BF70-7EF19DCAE683",
+      "needsReview" : true,
+      "note" : "",
+      "rawSource" : "03.09.26\nLegs\nSquat 5\/3\/1 110\n5x70 3x80 1x90\nLeg press\n3x10x100\n",
+      "sourceDate" : "03.09.26",
+      "sourceOrder" : 3,
+      "split" : "Legs",
+      "title" : ""
+    },
+    {
+      "date" : 810302400,
+      "durationSeconds" : 0,
+      "exercises" : [
+        {
+          "id" : "F0E77224-5330-4374-992E-692B028654D5",
+          "name" : "Bench press",
+          "note" : "BP 3\/3\/3 90\n3x5x62.5",
+          "scheme" : "3\/3\/3",
+          "sets" : [
+            {
+              "completed" : true,
+              "id" : "4DE39BAB-A921-4EB8-808F-EC8D5F000855",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 62.5
+            },
+            {
+              "completed" : true,
+              "id" : "04C2EFB0-BB3D-4AE3-AD47-7627CDCD351E",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 62.5
+            },
+            {
+              "completed" : true,
+              "id" : "8596E123-2531-4FD9-8E86-1E5033921E4F",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 62.5
+            }
+          ],
+          "trainingMax" : 90
+        },
+        {
+          "id" : "D8F9E490-AE12-4D30-B1BB-DCBA77BBEBA9",
+          "name" : "Overhead press",
+          "note" : "3x8x25",
+          "sets" : [
+            {
+              "completed" : true,
+              "id" : "47616BF5-4A8A-47E5-B07B-9B1D5B81BCEF",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 25
+            },
+            {
+              "completed" : true,
+              "id" : "78DF0624-6328-43E6-B1AA-0FDE2B99D73A",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 25
+            },
+            {
+              "completed" : true,
+              "id" : "43C57B35-9556-49EF-9AE6-4B20A4A6953D",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 25
+            }
+          ]
+        }
+      ],
+      "finished" : true,
+      "id" : "B53BE7EE-5D12-48B1-8501-37D101D6F06F",
+      "needsReview" : true,
+      "note" : "",
+      "rawSource" : "05.09.26\nUpper\nBP 3\/3\/3 90\n3x5x62.5\nOHP\n3x8x25\n",
+      "sourceDate" : "05.09.26",
+      "sourceOrder" : 4,
+      "split" : "Upper",
+      "title" : ""
+    },
+    {
+      "date" : 810388800,
+      "durationSeconds" : 0,
+      "exercises" : [
+        {
+          "id" : "92DF6A19-5AC2-4675-B6A1-1735D53600D9",
+          "name" : "Deadlift",
+          "note" : "DL 5\/3\/1 140\n5x90 3x105 1x120",
+          "scheme" : "5\/3\/1",
+          "sets" : [
+            {
+              "completed" : true,
+              "id" : "30B45599-A91A-454A-87B9-3596C1211010",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 90
+            },
+            {
+              "completed" : true,
+              "id" : "D056CF5A-385F-4B3C-9276-4BA5B35BCF07",
+              "note" : "",
+              "reps" : 3,
+              "warmup" : false,
+              "weight" : 105
+            },
+            {
+              "completed" : true,
+              "id" : "E140A639-2F17-42D0-8C48-668231AECCF2",
+              "note" : "",
+              "reps" : 1,
+              "warmup" : false,
+              "weight" : 120
+            }
+          ],
+          "trainingMax" : 140
+        },
+        {
+          "id" : "26668C8A-AC3F-4D65-9DE5-07B16AA52CF9",
+          "name" : "Leg curl",
+          "note" : "3x12x30",
+          "sets" : [
+            {
+              "completed" : true,
+              "id" : "7F26378F-5D55-4C11-9E31-0B1AEDBD7617",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 30
+            },
+            {
+              "completed" : true,
+              "id" : "13C6B0EB-5EE5-4A47-94AA-C5DD3BB0502C",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 30
+            },
+            {
+              "completed" : true,
+              "id" : "5A6BAD21-518B-439D-9F4D-6711EBFB1BAD",
+              "note" : "",
+              "reps" : 12,
+              "warmup" : false,
+              "weight" : 30
+            }
+          ]
+        }
+      ],
+      "finished" : true,
+      "id" : "AE36CA79-9C87-496E-8C86-65F1F0103971",
+      "needsReview" : true,
+      "note" : "",
+      "rawSource" : "06.09.26\nLower\nDL 5\/3\/1 140\n5x90 3x105 1x120\nLeg curl\n3x12x30\n",
+      "sourceDate" : "06.09.26",
+      "sourceOrder" : 5,
+      "split" : "Lower",
+      "title" : ""
+    },
+    {
+      "date" : 810561600,
+      "durationSeconds" : 0,
+      "exercises" : [
+        {
+          "id" : "2B4A3CAA-9A7F-493A-BF8B-85FB50A70A23",
+          "name" : "Bench press",
+          "note" : "BP 5\/3\/1 92.5\n3x5x65",
+          "scheme" : "5\/3\/1",
+          "sets" : [
+            {
+              "completed" : true,
+              "id" : "18AE9879-237D-42B6-80E4-CC33DC98DD4B",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 65
+            },
+            {
+              "completed" : true,
+              "id" : "6DF1585A-8503-4E05-BEF0-889573F0549C",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 65
+            },
+            {
+              "completed" : true,
+              "id" : "F19B3306-1E6E-4028-B8C0-C4DE5CDE710B",
+              "note" : "",
+              "reps" : 5,
+              "warmup" : false,
+              "weight" : 65
+            }
+          ],
+          "trainingMax" : 92.5
+        },
+        {
+          "id" : "9A6AD179-93A7-4FFB-AB84-C85A5DF9CBE0",
+          "name" : "Incline dumbbell press",
+          "note" : "3x8x22",
+          "sets" : [
+            {
+              "completed" : true,
+              "id" : "67ED2A85-6956-4592-850D-25F69EB93D2E",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 22
+            },
+            {
+              "completed" : true,
+              "id" : "F3D31616-457A-4A2E-B7B6-A613FB0AFB65",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 22
+            },
+            {
+              "completed" : true,
+              "id" : "18FA0F64-3A39-4744-8268-3C637B61FC4D",
+              "note" : "",
+              "reps" : 8,
+              "warmup" : false,
+              "weight" : 22
+            }
+          ]
+        }
+      ],
+      "finished" : true,
+      "id" : "E03DE925-6C26-4F7B-9CA3-A77DB9CEFBD7",
+      "needsReview" : true,
+      "note" : "",
+      "rawSource" : "08.09.26\nPush\nBP 5\/3\/1 92.5\n3x5x65\nIDP\n3x8x22\n",
+      "sourceDate" : "08.09.26",
+      "sourceOrder" : 6,
+      "split" : "Push",
+      "title" : ""
+    }
+  ]
+}
