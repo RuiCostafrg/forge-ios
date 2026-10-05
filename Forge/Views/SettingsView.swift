@@ -43,7 +43,7 @@ struct SettingsView: View {
                     Text("Dates without a year stay unresolved. 5/3/1 scheme weights are stored as training maxima. Unclear values, bodyweight/max loads, and comments remain in the original notes for you to check.").font(.footnote).foregroundStyle(Theme.muted)
                 }
                 Section("About") {
-                    LabeledContent("Version", value: "1.0")
+                    LabeledContent("Version", value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.2")
                     Text("Estimated 1RM uses the Epley formula for 1–12 reps. Volume sums external weight × repetitions for completed working sets. Warm-ups and unconfirmed imports are excluded from calendar totals.")
                         .font(.footnote).foregroundStyle(Theme.muted)
                 }

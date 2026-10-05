@@ -34,6 +34,7 @@ struct Exercise: Identifiable, Codable, Equatable, Sendable {
     var note: String = ""
     var trainingMax: Double? = nil
     var scheme: String? = nil
+    var templateID: UUID? = nil
     var volume: Double { sets.reduce(0) { $0 + $1.volume } }
 }
 
@@ -50,6 +51,9 @@ struct Session: Identifiable, Codable, Equatable, Sendable {
     var sourceDate: String? = nil
     var rawSource: String? = nil
     var needsReview: Bool = false
+    var restSeconds: Int? = nil
+    var restEndsAt: Date? = nil
+    var restDuration: Int { restSeconds ?? 90 }
     var displayTitle: String { title.isEmpty ? split.rawValue + " session" : title }
     var volume: Double { exercises.reduce(0) { $0 + $1.volume } }
     var completedSets: Int { exercises.flatMap(\.sets).filter { $0.completed && !$0.warmup && $0.reps > 0 }.count }
@@ -60,6 +64,8 @@ struct ProgramDay: Identifiable, Codable, Equatable, Sendable {
     var weekday: Int
     var split: Split
     var exercises: [Exercise]
+    var restSeconds: Int? = nil
+    var restDuration: Int { restSeconds ?? 90 }
     var id: Int { weekday }
 }
 
@@ -75,6 +81,9 @@ struct Archive: Codable, Equatable, Sendable {
         guard program.count == 7, Set(program.map(\.weekday)) == Set(1...7),
               Set(sessions.map(\.id)).count == sessions.count,
               sessions.count <= 50_000 else { throw DataError.invalidBackup }
+        for seconds in program.compactMap(\.restSeconds) + sessions.compactMap(\.restSeconds) {
+            guard (15...600).contains(seconds) else { throw DataError.invalidBackup }
+        }
         for exercises in sessions.map(\.exercises) + program.map(\.exercises) {
             guard exercises.count <= 200, Set(exercises.map(\.id)).count == exercises.count else { throw DataError.invalidBackup }
             for exercise in exercises {

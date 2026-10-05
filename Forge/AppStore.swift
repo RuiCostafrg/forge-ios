@@ -53,21 +53,7 @@ final class AppStore: ObservableObject {
         commit(updated)
     }
     func makeSession(date: Date = Date(), split override: Split? = nil) -> Session {
-        let weekday = GymCalendar.calendar.component(.weekday, from: date)
-        let day = program.first { $0.weekday == weekday }!
-        let split = override ?? day.split
-        let template = split == .rest ? [] : split == day.split ? day.exercises : program.first { $0.split == split }?.exercises ?? []
-        let exercises = template.map { exercise in
-            var copy = exercise; copy.id = UUID()
-            let previous = Analytics.lastExercise(exercise.name, sessions: sessions)?.sets.filter { $0.completed && !$0.warmup }
-            copy.sets = exercise.sets.enumerated().map { index, set in
-                var set = set; set.id = UUID(); set.completed = false
-                if let previous, !previous.isEmpty { set.weight = previous[min(index, previous.count - 1)].weight }
-                return set
-            }
-            return copy
-        }
-        return Session(date: date, split: split == .rest ? .custom : split, exercises: exercises)
+        Training.makeSession(in: archive, date: date, split: override)
     }
     func restore(_ data: Data) throws {
         let updated = try ArchiveStorage.decode(data)

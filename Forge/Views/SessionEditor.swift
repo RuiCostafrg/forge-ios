@@ -8,7 +8,6 @@ struct SessionEditor: View {
     @State private var pickingExercise = false
     @State private var deleteConfirmation = false
     @State private var finishError = false
-    @State private var restEnd: Date?
     @State private var openedAt = Date()
     @State private var elapsedRecorded = false
     @State private var deleted = false
@@ -21,7 +20,11 @@ struct SessionEditor: View {
                     if !draft.finished && draft.sourceOrder == nil { restTimer }
                     if draft.needsReview { reviewCard }
                     ForEach($draft.exercises) { $exercise in
-                        ExerciseCard(exercise: $exercise, sessionID: draft.id) {
+                        ExerciseCard(exercise: $exercise, sessionID: draft.id, onSetCompletion: { completed in
+                            if !draft.finished {
+                                draft.restEndsAt = completed ? Date().addingTimeInterval(Double(draft.restDuration)) : nil
+                            }
+                        }) {
                             draft.exercises.removeAll { $0.id == exercise.id }
                         } moveUp: {
                             if let index = draft.exercises.firstIndex(where: { $0.id == exercise.id }), index > 0 {
@@ -80,7 +83,14 @@ struct SessionEditor: View {
         VStack(alignment: .leading, spacing: 14) {
             HStack { SplitBadge(split: draft.split); Spacer(); Text("\(draft.completedSets) sets · \(kg(draft.volume)) kg").font(.caption).foregroundStyle(Theme.muted) }
             TextField("Session title (optional)", text: $draft.title).font(.title2.bold())
-            Picker("Session type", selection: $draft.split) { ForEach(Split.allCases.filter { $0 != .rest }) { Text($0.rawValue).tag($0) } }.pickerStyle(.menu)
+            Picker("Session type", selection: Binding(get: { draft.split }, set: {
+                draft = Training.selectType(draft, split: $0, in: store.archive)
+            })) { ForEach(Split.allCases) { Text($0.rawValue).tag($0) } }.pickerStyle(.menu)
+            Text(draft.finished ? "Reopen to add exercises from your program." : "Selecting a type adds its program exercises and keeps your existing sets.")
+                .font(.caption).foregroundStyle(Theme.muted)
+            if !draft.finished {
+                Button("Add missing program exercises") { draft = Training.selectType(draft, split: draft.split, in: store.archive) }.font(.footnote)
+            }
             if draft.needsReview {
                 Toggle("Session date is known", isOn: Binding(get: { draft.date != nil }, set: { draft.date = $0 ? Date() : nil }))
             }
@@ -100,18 +110,24 @@ struct SessionEditor: View {
     }
     private var restTimer: some View {
         TimelineView(.periodic(from: .now, by: 1)) { timeline in
-            let seconds = max(0, Int((restEnd ?? timeline.date).timeIntervalSince(timeline.date).rounded(.up)))
+            let seconds = max(0, Int((draft.restEndsAt ?? timeline.date).timeIntervalSince(timeline.date).rounded(.up)))
             HStack {
                 Image(systemName: "timer").foregroundStyle(Theme.mint)
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(restEnd == nil ? "Rest timer" : seconds == 0 ? "Ready for your next set" : String(format: "%d:%02d remaining", seconds / 60, seconds % 60)).font(.subheadline.bold()).monospacedDigit()
+                    Text(draft.restEndsAt == nil ? "Rest timer · \(draft.restDuration)s" : seconds == 0 ? "Ready for your next set" : String(format: "%d:%02d remaining", seconds / 60, seconds % 60)).font(.subheadline.bold()).monospacedDigit()
                     Text("\(draft.durationSeconds / 60 + Int(timeline.date.timeIntervalSince(openedAt)) / 60) min logged").font(.caption).foregroundStyle(Theme.muted)
                 }
                 Spacer()
+                Button(draft.restEndsAt == nil ? "Start" : "Restart") {
+                    draft.restEndsAt = Date().addingTimeInterval(Double(draft.restDuration))
+                }.font(.subheadline.bold())
                 Menu {
-                    ForEach([60, 90, 120, 180, 300], id: \.self) { value in Button("\(value) seconds") { restEnd = Date().addingTimeInterval(Double(value)) } }
-                    Button("Cancel timer") { restEnd = nil }
-                } label: { Text(restEnd == nil ? "Start" : "Adjust").font(.subheadline.bold()) }
+                    ForEach([60, 90, 120, 180, 300], id: \.self) { value in Button("\(value) seconds") {
+                        draft.restSeconds = value
+                        draft.restEndsAt = Date().addingTimeInterval(Double(value))
+                    } }
+                    Button("Cancel timer") { draft.restEndsAt = nil }
+                } label: { Image(systemName: "ellipsis").padding(8) }.accessibilityLabel("Rest timer options")
             }.gymCard()
         }
     }
@@ -122,7 +138,7 @@ struct SessionEditor: View {
     }
     private func finish() {
         guard draft.exercises.flatMap(\.sets).contains(where: { $0.completed && !$0.warmup && $0.reps > 0 }) else { finishError = true; return }
-        recordElapsed(); draft.finished = true; store.save(draft)
+        recordElapsed(); draft.restEndsAt = nil; draft.finished = true; store.save(draft)
     }
 }
 
@@ -131,6 +147,7 @@ struct ExerciseCard: View {
     @Binding var exercise: Exercise
     var sessionID: UUID? = nil
     var template = false
+    var onSetCompletion: ((Bool) -> Void)? = nil
     var remove: () -> Void
     var moveUp: () -> Void
     @State private var rename = false
@@ -169,7 +186,7 @@ struct ExerciseCard: View {
             }.font(.caption2.bold()).foregroundStyle(Theme.muted)
             ForEach($exercise.sets) { $set in
                 let number = (exercise.sets.firstIndex { $0.id == set.id } ?? 0) + 1
-                SetRow(set: $set, number: number, template: template) {
+                SetRow(set: $set, number: number, template: template, onCompletion: onSetCompletion) {
                     exercise.sets.removeAll { $0.id == set.id }
                 }
             }
@@ -204,6 +221,7 @@ struct SetRow: View {
     @Binding var set: LiftSet
     let number: Int
     let template: Bool
+    var onCompletion: ((Bool) -> Void)? = nil
     var remove: () -> Void
     @State private var details = false
     var body: some View {
@@ -215,7 +233,7 @@ struct SetRow: View {
                 WeightInput(value: $set.weight).frame(maxWidth: .infinity)
                 RepInput(value: $set.reps).frame(maxWidth: .infinity)
                 if !template {
-                    Button { set.completed.toggle() } label: {
+                    Button { set.completed.toggle(); onCompletion?(set.completed) } label: {
                         Image(systemName: set.completed ? "checkmark.square.fill" : "square").font(.title2)
                             .foregroundStyle(set.completed ? Theme.mint : Theme.muted).frame(width: 40, height: 44)
                     }.disabled(set.reps <= 0).accessibilityLabel(set.completed ? "Mark set incomplete" : "Complete set")

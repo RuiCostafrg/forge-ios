@@ -2,6 +2,8 @@
 
 A native SwiftUI gym tracker for iOS 17+. Track weights, repetitions, sets, and notes with an editable Push/Pull/Legs/Upper/Lower weekly program. The interface is English, weights are in kilograms, and weeks start on Sunday.
 
+Version **0.0.2** ports the saved-template population behavior from [Forge Android 0.0.2](https://github.com/RuiCostafrg/forge-android/commit/b10917e7fb116f8ad047e04fd2e8dd0714a4f611).
+
 ## Run the app
 
 Open **Forge.xcodeproj** in Xcode 16 or newer on a Mac, select the **Forge** scheme, choose an iPhone simulator, and click Run. There are no external packages, accounts, servers, or API keys.
@@ -14,13 +16,19 @@ This project was prepared in a Linux cloud workspace. Its Foundation core is tes
 
 - **Overview:** today’s workout suggestion, workout overrides, Sunday-first weekly activity, working-set/volume totals, recent sessions, and interactive strength charts.
 - **Sessions:** Sunday-first monthly calendar, session dates, search, history/review/draft filters, editing, and deletion.
-- **Logging:** previous recorded weights, exercises, reps/sets/kg, completion checks, warm-up flags, set/exercise/session notes, training maxima, and a rest timer.
-- **Program:** independently editable days, exercise templates, set counts, rep targets, and rest/custom workouts.
+- **Logging:** previous recorded weights, exercises, reps/sets/kg, completion checks, warm-up flags, set/exercise/session notes, training maxima, and a persistent rest timer.
+- **Program:** independently editable days, exercise templates, set counts, rep targets, rest durations, and rest/custom workouts.
 - **Settings:** local backup export/restore, previous-revision recovery, and source-note review.
 
 The starting schedule is Sunday Push, Monday Pull, Tuesday Legs, Wednesday Rest, Thursday Upper, Friday Lower, Saturday Rest. Change any day in Program or choose any workout when starting a session.
 
-Session edits save automatically. **Done** closes the editor and preserves an unfinished session as a draft. **Finish session** marks a workout complete after a working set is recorded. Tap a set number to edit its note or warm-up status. Changing a session’s type preserves its exercises.
+Session edits save automatically. **Done** closes the editor and preserves an unfinished session as a draft. **Finish session** marks a workout complete after a working set is recorded. Tap a set number to edit its note or warm-up status.
+
+Selecting a draft's session type adds missing program exercises and set/rep targets while preserving existing exercise IDs, notes, and logged sets. Repeated selection does not duplicate exercises. **Add missing program exercises** also applies the current type without switching away and back. Finished sessions only change their type label; reopen a new completed session to populate it.
+
+Templates resolve against the session's date: a matching day and type take priority, then the first saved day of that type in Sunday-first order. When no saved template exists, built-in targets are used. Deliberately empty saved templates remain empty. New sets have fresh IDs, start incomplete, and use previous working weights from confirmed completed sessions when available.
+
+Starting a session copies the chosen template's rest duration. Program rest durations can be edited from 15 to 600 seconds. Completing a set starts the rest timer; undoing completion cancels it. Its deadline persists across closing/relaunching the app, without background notifications. Selecting another session type preserves that session's current rest settings and logged work.
 
 ## Sample data and personal history
 
@@ -44,7 +52,7 @@ Export from Settings and choose **On My iPhone** in Files for a local backup. Re
 
 ## Tests and project maintenance
 
-The shared Foundation core has 14 XCTest tests, runnable through SwiftPM on macOS/Linux and through the Xcode **ForgeTests** target:
+The shared Foundation core has 27 XCTest tests, runnable through SwiftPM on macOS/Linux and through the Xcode **ForgeTests** target:
 
 ```sh
 swift test
@@ -75,4 +83,4 @@ swiftc Forge/Core/*.swift scripts/SeedHistory.swift -o /tmp/forge-seed
 cp Forge/Resources/TrainingHistory.md Tests/ForgeCoreTests/Fixtures/TrainingHistory.md
 ```
 
-The seed is imported once per installation. Existing saved data is retained across app updates. Backup schema version is 1; Codable dates preserve Foundation’s native precision.
+The seed is imported once per installation. Existing saved data is retained across app updates. Backup schema version is 1; Codable dates preserve Foundation’s native precision. The new optional template identity, rest duration, and timer deadline fields remain compatible with older iOS backups. Android and iOS backup formats remain different.

@@ -19,7 +19,7 @@ struct ProgramView: View {
                                     Text(day.split.rawValue).font(.title3.bold())
                                 }.frame(width: 82, alignment: .leading)
                                 VStack(alignment: .leading, spacing: 6) {
-                                    Text(day.split == .rest ? "Recovery day" : "\(day.exercises.count) exercises").font(.subheadline.bold())
+                                    Text(day.split == .rest ? "Recovery day" : "\(day.exercises.count) exercises · \(day.restDuration)s rest").font(.subheadline.bold())
                                     Text(day.exercises.prefix(3).map(\.name).joined(separator: " · ")).font(.caption).foregroundStyle(Theme.muted).lineLimit(2)
                                 }
                                 Spacer(minLength: 0)
@@ -51,6 +51,8 @@ struct ProgramEditor: View {
                         Picker("Workout", selection: $day.split) { ForEach(Split.allCases) { Text($0.rawValue).tag($0) } }.pickerStyle(.menu)
                         Text("Choose the session type, then customise the exercises, sets, and rep targets below. Existing sessions keep their own exercises.")
                             .font(.footnote).foregroundStyle(Theme.muted)
+                        Stepper("Rest between sets · \(day.restDuration)s", value: Binding(get: { day.restDuration }, set: { day.restSeconds = $0 }), in: 15...600, step: 15)
+                            .font(.subheadline)
                     }.gymCard()
                     if day.split == .rest {
                         EmptyCard(symbol: "moon.fill", title: "Time to recover", detail: "This day suggests rest. You can still log any session from Overview or Sessions.")
