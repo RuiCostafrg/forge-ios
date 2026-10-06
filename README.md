@@ -10,7 +10,7 @@ Open **Forge.xcodeproj** in Xcode 16 or newer on a Mac, select the **Forge** sch
 
 For your own iPhone, select your development team in Signing & Capabilities, choose a unique app bundle identifier, connect your phone, and run the app. Enable Developer Mode and trust the development profile if iOS asks. Personal-team builds may need periodic re-signing.
 
-This project was prepared in a Linux cloud workspace. Its Foundation core is tested and its Swift source syntax is checked. Native SwiftUI type checking, Apple SDK compilation, simulator testing, and signing still need Xcode on a Mac. No signed `.ipa` is included.
+The 43 Foundation core tests pass on Linux and macOS. The SwiftUI app and XCTest target compile successfully with Xcode 16.4 for the iOS Simulator in [GitHub Actions](https://github.com/RuiCostafrg/forge-ios/actions/runs/37496358100). Simulator interaction, device execution, and signing still need validation. No signed `.ipa` is included.
 
 ## Features
 

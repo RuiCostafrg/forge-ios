@@ -6,13 +6,13 @@ This is the public source edition of Forge, a local-first SwiftUI gym tracker fo
 
 Version 0.0.3 adds per-lift 5/3/1 progression, editable prescription settings, and additive Markdown history import. Suggestions interpret scheme numbers as TMs, advance using phase labels, use imported document order for unresolved dates, and keep prescription snapshots with new exercises. Program controls can disable or override this. The app shows the source of each suggestion. Completed work is never automatically replaced. It also matches Android's template-population change at commit `b10917e7fb116f8ad047e04fd2e8dd0714a4f611`. Draft type selection appends missing saved targets, preserves logged work, and prevents duplicates. The session weekday takes priority when a type appears on multiple days, then the first Sunday-ordered matching day, then built-in defaults. Empty saved templates remain empty. Finished sessions only change their type label.
 
-Program rest durations and persistent session timer deadlines are supported. New optional Codable fields keep old iOS schema-1 backups readable. All 43 core tests pass; Apple SDK compilation and on-device checks remain outstanding.
+Program rest durations and persistent session timer deadlines are supported. New optional Codable fields keep old iOS schema-1 backups readable. All 43 core tests pass on Linux and macOS. The app and XCTest target also compile with Xcode 16.4 for the iOS Simulator in [GitHub Actions](https://github.com/RuiCostafrg/forge-ios/actions/runs/37496358100); runtime/device checks and signing remain outstanding.
 
 Implemented screens: Overview, Sessions, Program, and Settings. Logging supports exercises, weights/reps/sets, completion, warm-ups, notes, previous recorded weights, rest timing, and session editing/deletion. Charts cover top weight, estimated 1RM, volume, and training maxima.
 
 The public repository contains fictional sample notes and a matching seed, not personal training records. Every imported example starts with Review needed. Dates and ambiguous notation must be checked before calendar totals include imported entries. Use local Markdown import or backup restore for personal data. `scripts/PrepareHistory.swift` prepares private backups outside this checkout.
 
-A macOS CI workflow now checks both the core and an unsigned Apple SDK build. Core logic was tested on Linux with Swift 6.0.3. SwiftUI sources were syntax-parsed. An Apple SDK build, native UI type check, simulator/device checks, and signing remain outstanding. See VALIDATION.md for evidence and README.md for commands.
+A macOS CI workflow now checks both the core and an unsigned Apple SDK build. Core logic was tested on Linux with Swift 6.0.3 and in macOS CI. SwiftUI sources passed the Apple SDK build and native type checking. Simulator/device runtime checks and signing remain outstanding. See VALIDATION.md for evidence and README.md for commands.
 
 ## Code map
 
@@ -33,7 +33,7 @@ There are no external dependencies or application networking. The app target com
 
 ## Next steps
 
-1. Build with Xcode 16+ on a Mac and resolve any Apple SDK/type-checking issues.
+1. Run the app with Xcode 16+ on a Mac; both native targets already compile in CI.
 2. Run the iOS XCTest target and verify offline launch, session logging, persistence, calendar totals, overrides, backup/restore, and deletion.
 3. Check number-pad input, chart interaction, small-screen layouts, large text, and VoiceOver.
 4. For device installation, configure the user’s Apple development team and a unique bundle identifier.

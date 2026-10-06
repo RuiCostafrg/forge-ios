@@ -12,6 +12,6 @@ Project validation also passed for all 15 app Swift files and both XCTest source
 
 The 16 new 5/3/1/import regressions cover percentage sets, phase metadata versus actual reps, document order, independent lifts, supplemental work exclusion, microloading, latest increases and resets, optional deloads, overrides and rounding, opt-outs and missing TMs, partial/draft/future-session exclusion, template/manual creation, snapshot preservation, JSON compatibility and validation, additive import, and repeated identical occurrences.
 
-A macOS GitHub Actions workflow now runs core tests, project validation, and an unsigned Apple SDK build of both targets. Its first result is pending publication at the time of this local report.
+On 6 October 2026, [macOS GitHub Actions run 37496358100](https://github.com/RuiCostafrg/forge-ios/actions/runs/37496358100) passed at commit `255f2088e053b798a1a314535fb7bed90e85d4cb`: all 43 core tests passed, project validation passed, and the SwiftUI app plus both XCTest sources compiled with Xcode 16.4 for the iOS Simulator (`TEST BUILD SUCCEEDED`). Signing was disabled for this build.
 
-An Apple SDK build, native SwiftUI type checking, iOS simulator/device execution, screenshots, and signing have not been performed in the Linux workspace. This is a source project, not a signed iPhone binary. Use the README commands and device checklist to perform the remaining native validation.
+Apple SDK compilation and native SwiftUI type checking are now verified by that macOS CI build. Interactive simulator/device execution, the iOS XCTest runtime, screenshots, and device signing remain unverified. This is a source project, not a signed iPhone binary. Use the README commands to perform the remaining runtime validation.
