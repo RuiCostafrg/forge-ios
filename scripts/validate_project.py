@@ -66,6 +66,9 @@ def main():
         if phase['isa'] == 'PBXResourcesBuildPhase': resources = files
     expected = sorted(path.relative_to(ROOT).as_posix() for path in (ROOT / 'Forge').rglob('*.swift'))
     assert sorted(sources) == expected
+    test_phase = next(objects[key] for key in targets['ForgeTests']['buildPhases'] if objects[key]['isa'] == 'PBXSourcesBuildPhase')
+    test_sources = [objects[objects[build]['fileRef']]['path'] for build in test_phase['files']]
+    assert sorted(test_sources) == sorted(path.relative_to(ROOT).as_posix() for path in (ROOT / 'Tests/ForgeCoreTests').rglob('*.swift'))
     assert 'Forge/Resources/SeedHistory.json' in resources
     for path in [ROOT / 'Forge/Info.plist', ROOT / 'Forge/Resources/PrivacyInfo.xcprivacy']:
         with path.open('rb') as file: plistlib.load(file)

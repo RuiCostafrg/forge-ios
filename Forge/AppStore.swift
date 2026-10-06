@@ -64,6 +64,15 @@ final class AppStore: ObservableObject {
         let data = try Data(contentsOf: storage.recoveryFile)
         try restore(data)
     }
+    func importHistory(_ text: String) throws -> Int {
+        guard !storageBlocked else { throw DataError.invalidBackup }
+        let result = try HistoryMerge.preview(text, in: archive)
+        if result.added > 0 {
+            try storage.save(result.archive)
+            archive = result.archive
+        }
+        return result.added
+    }
 }
 
 struct BackupDocument: FileDocument {

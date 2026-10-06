@@ -1,91 +1,133 @@
-[0/1] Planning build
 Building for debugging...
-[0/13] Write sources
-[1/13] Copying Fixtures
-[2/13] Write swift-version--CCBDF3B3BBB4959.txt
-[3/13] Wrapping AST for ForgeCore for debugging
-[5/16] Emitting module ForgeCoreTests
-[6/16] Compiling ForgeCoreTests resource_bundle_accessor.swift
-[7/16] Compiling ForgeCoreTests ForgeCoreTests.swift
-[8/17] /workspace/forge-ios-sync/.build/x86_64-unknown-linux-gnu/debug/ForgeCorePackageDiscoveredTests.derived/all-discovered-tests.swift
-[9/17] Write sources
-[10/17] Wrapping AST for ForgeCoreTests for debugging
-[12/20] Compiling ForgeCorePackageDiscoveredTests ForgeCoreTests.swift
-[13/20] Emitting module ForgeCorePackageDiscoveredTests
-[14/20] Compiling ForgeCorePackageDiscoveredTests all-discovered-tests.swift
-[15/21] /workspace/forge-ios-sync/.build/x86_64-unknown-linux-gnu/debug/ForgeCorePackageTests.derived/runner.swift
-[16/21] Write sources
-[17/21] Wrapping AST for ForgeCorePackageDiscoveredTests for debugging
-[19/23] Emitting module ForgeCorePackageTests
-[20/23] Compiling ForgeCorePackageTests runner.swift
-[21/24] Wrapping AST for ForgeCorePackageTests for debugging
-[22/24] Write Objects.LinkFileList
-[23/24] Linking ForgeCorePackageTests.xctest
-Build complete! (3.44s)
-Test Suite 'All tests' started at 2026-10-05 21:48:18.258
-Test Suite 'debug.xctest' started at 2026-10-05 21:48:18.259
-Test Suite 'ForgeCoreTests' started at 2026-10-05 21:48:18.259
-Test Case 'ForgeCoreTests.testAbsentSavedTypeUsesBuiltInTargets' started at 2026-10-05 21:48:18.259
+[0/14] Write sources
+[0/14] Copying Fixtures
+[3/14] Write swift-version--CCBDF3B3BBB4959.txt
+[5/19] Compiling ForgeCore ArchiveStorage.swift
+[6/19] Compiling ForgeCore HistoryImporter.swift
+[7/19] Compiling ForgeCore HistoryMerge.swift
+[8/19] Compiling ForgeCore Models.swift
+[9/19] Emitting module ForgeCore
+[10/21] Compiling ForgeCore Training.swift
+[11/21] Compiling ForgeCore Wendler.swift
+[12/22] Wrapping AST for ForgeCore for debugging
+[14/25] Compiling ForgeCoreTests WendlerTests.swift
+[15/25] Compiling ForgeCoreTests ForgeCoreTests.swift
+[16/25] Emitting module ForgeCoreTests
+[17/26] Compiling ForgeCoreTests resource_bundle_accessor.swift
+[18/27] /workspace/forge-ios-531/.build/x86_64-unknown-linux-gnu/debug/ForgeCorePackageDiscoveredTests.derived/all-discovered-tests.swift
+[19/27] Write sources
+[20/27] Wrapping AST for ForgeCoreTests for debugging
+[22/30] Compiling ForgeCorePackageDiscoveredTests ForgeCoreTests.swift
+[23/30] Compiling ForgeCorePackageDiscoveredTests all-discovered-tests.swift
+[24/30] Emitting module ForgeCorePackageDiscoveredTests
+[25/31] /workspace/forge-ios-531/.build/x86_64-unknown-linux-gnu/debug/ForgeCorePackageTests.derived/runner.swift
+[26/31] Write sources
+[27/31] Wrapping AST for ForgeCorePackageDiscoveredTests for debugging
+[29/33] Compiling ForgeCorePackageTests runner.swift
+[30/33] Emitting module ForgeCorePackageTests
+[31/34] Wrapping AST for ForgeCorePackageTests for debugging
+[32/34] Write Objects.LinkFileList
+[33/34] Linking ForgeCorePackageTests.xctest
+Build complete! (8.58s)
+Test Suite 'All tests' started at 2026-10-06 16:22:02.772
+Test Suite 'debug.xctest' started at 2026-10-06 16:22:02.773
+Test Suite 'ForgeCoreTests' started at 2026-10-06 16:22:02.773
+Test Case 'ForgeCoreTests.testAbsentSavedTypeUsesBuiltInTargets' started at 2026-10-06 16:22:02.773
 Test Case 'ForgeCoreTests.testAbsentSavedTypeUsesBuiltInTargets' passed (0.002 seconds)
-Test Case 'ForgeCoreTests.testBundledSampleHistory' started at 2026-10-05 21:48:18.261
+Test Case 'ForgeCoreTests.testBundledSampleHistory' started at 2026-10-06 16:22:02.775
 Imported 6 entries, 12 exercises, 36 explicit sets, 6 entries with explicit full dates.
-Test Case 'ForgeCoreTests.testBundledSampleHistory' passed (0.02 seconds)
-Test Case 'ForgeCoreTests.testDefaultProgramIsSundayFirstAndOverridable' started at 2026-10-05 21:48:18.280
-Test Case 'ForgeCoreTests.testDefaultProgramIsSundayFirstAndOverridable' passed (0.101 seconds)
-Test Case 'ForgeCoreTests.testEmptyDraftPopulationUsesPreviousWeightsAndFreshIDs' started at 2026-10-05 21:48:18.381
+Test Case 'ForgeCoreTests.testBundledSampleHistory' passed (0.223 seconds)
+Test Case 'ForgeCoreTests.testDefaultProgramIsSundayFirstAndOverridable' started at 2026-10-06 16:22:02.998
+Test Case 'ForgeCoreTests.testDefaultProgramIsSundayFirstAndOverridable' passed (0.001 seconds)
+Test Case 'ForgeCoreTests.testEmptyDraftPopulationUsesPreviousWeightsAndFreshIDs' started at 2026-10-06 16:22:02.999
 Test Case 'ForgeCoreTests.testEmptyDraftPopulationUsesPreviousWeightsAndFreshIDs' passed (0.001 seconds)
-Test Case 'ForgeCoreTests.testEmptySavedTemplateDoesNotFallBackToDefaults' started at 2026-10-05 21:48:18.382
+Test Case 'ForgeCoreTests.testEmptySavedTemplateDoesNotFallBackToDefaults' started at 2026-10-06 16:22:03.000
 Test Case 'ForgeCoreTests.testEmptySavedTemplateDoesNotFallBackToDefaults' passed (0.0 seconds)
-Test Case 'ForgeCoreTests.testExactDatesDoNotInferYears' started at 2026-10-05 21:48:18.382
+Test Case 'ForgeCoreTests.testExactDatesDoNotInferYears' started at 2026-10-06 16:22:03.000
 Test Case 'ForgeCoreTests.testExactDatesDoNotInferYears' passed (0.003 seconds)
-Test Case 'ForgeCoreTests.testFinishedSessionChangesOnlyType' started at 2026-10-05 21:48:18.385
+Test Case 'ForgeCoreTests.testFinishedSessionChangesOnlyType' started at 2026-10-06 16:22:03.003
 Test Case 'ForgeCoreTests.testFinishedSessionChangesOnlyType' passed (0.0 seconds)
-Test Case 'ForgeCoreTests.testInvalidBackupCannotOverwriteStore' started at 2026-10-05 21:48:18.385
+Test Case 'ForgeCoreTests.testInvalidBackupCannotOverwriteStore' started at 2026-10-06 16:22:03.003
 Test Case 'ForgeCoreTests.testInvalidBackupCannotOverwriteStore' passed (0.003 seconds)
-Test Case 'ForgeCoreTests.testJSONRoundTripKeepsHistoryAndNotes' started at 2026-10-05 21:48:18.388
+Test Case 'ForgeCoreTests.testJSONRoundTripKeepsHistoryAndNotes' started at 2026-10-06 16:22:03.006
 Test Case 'ForgeCoreTests.testJSONRoundTripKeepsHistoryAndNotes' passed (0.003 seconds)
-Test Case 'ForgeCoreTests.testLegacyBackupsDecodeWithoutTemplateOrRestFields' started at 2026-10-05 21:48:18.392
+Test Case 'ForgeCoreTests.testLegacyBackupsDecodeWithoutTemplateOrRestFields' started at 2026-10-06 16:22:03.009
 Test Case 'ForgeCoreTests.testLegacyBackupsDecodeWithoutTemplateOrRestFields' passed (0.003 seconds)
-Test Case 'ForgeCoreTests.testNewSessionsTakePrecedenceForPreviousWeights' started at 2026-10-05 21:48:18.394
+Test Case 'ForgeCoreTests.testNewSessionsTakePrecedenceForPreviousWeights' started at 2026-10-06 16:22:03.012
 Test Case 'ForgeCoreTests.testNewSessionsTakePrecedenceForPreviousWeights' passed (0.001 seconds)
-Test Case 'ForgeCoreTests.testOffScheduleStartUsesSavedTargetsAndRest' started at 2026-10-05 21:48:18.396
+Test Case 'ForgeCoreTests.testOffScheduleStartUsesSavedTargetsAndRest' started at 2026-10-06 16:22:03.013
 Test Case 'ForgeCoreTests.testOffScheduleStartUsesSavedTargetsAndRest' passed (0.0 seconds)
-Test Case 'ForgeCoreTests.testRenamingPopulatedExerciseRetainsTemplateIdentity' started at 2026-10-05 21:48:18.396
+Test Case 'ForgeCoreTests.testRenamingPopulatedExerciseRetainsTemplateIdentity' started at 2026-10-06 16:22:03.014
 Test Case 'ForgeCoreTests.testRenamingPopulatedExerciseRetainsTemplateIdentity' passed (0.0 seconds)
-Test Case 'ForgeCoreTests.testRepeatedLiftStartsUndatedBlock' started at 2026-10-05 21:48:18.397
-Test Case 'ForgeCoreTests.testRepeatedLiftStartsUndatedBlock' passed (0.002 seconds)
-Test Case 'ForgeCoreTests.testRestDeadlineAndTemplateIdentitySurviveBackup' started at 2026-10-05 21:48:18.399
+Test Case 'ForgeCoreTests.testRepeatedLiftStartsUndatedBlock' started at 2026-10-06 16:22:03.014
+Test Case 'ForgeCoreTests.testRepeatedLiftStartsUndatedBlock' passed (0.003 seconds)
+Test Case 'ForgeCoreTests.testRestDeadlineAndTemplateIdentitySurviveBackup' started at 2026-10-06 16:22:03.017
 Test Case 'ForgeCoreTests.testRestDeadlineAndTemplateIdentitySurviveBackup' passed (0.003 seconds)
-Test Case 'ForgeCoreTests.testRestSelectionPreservesWorkAndCustomStartsEmpty' started at 2026-10-05 21:48:18.401
-Test Case 'ForgeCoreTests.testRestSelectionPreservesWorkAndCustomStartsEmpty' passed (0.001 seconds)
-Test Case 'ForgeCoreTests.testSessionDateChoosesMatchingTemplateWhenTypeRepeats' started at 2026-10-05 21:48:18.402
-Test Case 'ForgeCoreTests.testSessionDateChoosesMatchingTemplateWhenTypeRepeats' passed (0.0 seconds)
-Test Case 'ForgeCoreTests.testSetMultipliersAndAmbiguousNotation' started at 2026-10-05 21:48:18.402
+Test Case 'ForgeCoreTests.testRestSelectionPreservesWorkAndCustomStartsEmpty' started at 2026-10-06 16:22:03.020
+Test Case 'ForgeCoreTests.testRestSelectionPreservesWorkAndCustomStartsEmpty' passed (0.002 seconds)
+Test Case 'ForgeCoreTests.testSessionDateChoosesMatchingTemplateWhenTypeRepeats' started at 2026-10-06 16:22:03.022
+Test Case 'ForgeCoreTests.testSessionDateChoosesMatchingTemplateWhenTypeRepeats' passed (0.101 seconds)
+Test Case 'ForgeCoreTests.testSetMultipliersAndAmbiguousNotation' started at 2026-10-06 16:22:03.122
 Test Case 'ForgeCoreTests.testSetMultipliersAndAmbiguousNotation' passed (0.003 seconds)
-Test Case 'ForgeCoreTests.testStorageIsAtomicAndKeepsPriorValidRevision' started at 2026-10-05 21:48:18.405
-Test Case 'ForgeCoreTests.testStorageIsAtomicAndKeepsPriorValidRevision' passed (0.005 seconds)
-Test Case 'ForgeCoreTests.testSundayWeekBoundary' started at 2026-10-05 21:48:18.410
+Test Case 'ForgeCoreTests.testStorageIsAtomicAndKeepsPriorValidRevision' started at 2026-10-06 16:22:03.125
+Test Case 'ForgeCoreTests.testStorageIsAtomicAndKeepsPriorValidRevision' passed (0.006 seconds)
+Test Case 'ForgeCoreTests.testSundayWeekBoundary' started at 2026-10-06 16:22:03.131
 Test Case 'ForgeCoreTests.testSundayWeekBoundary' passed (0.001 seconds)
-Test Case 'ForgeCoreTests.testTemplateWeightsExcludeUnreviewedDraftWarmupAndZeroRepSets' started at 2026-10-05 21:48:18.411
+Test Case 'ForgeCoreTests.testTemplateWeightsExcludeUnreviewedDraftWarmupAndZeroRepSets' started at 2026-10-06 16:22:03.132
 Test Case 'ForgeCoreTests.testTemplateWeightsExcludeUnreviewedDraftWarmupAndZeroRepSets' passed (0.001 seconds)
-Test Case 'ForgeCoreTests.testTrainingMaxBeforeSchemeAndDecimalComma' started at 2026-10-05 21:48:18.412
-Test Case 'ForgeCoreTests.testTrainingMaxBeforeSchemeAndDecimalComma' passed (0.002 seconds)
-Test Case 'ForgeCoreTests.testTrainingMaxIsNeverCountedAsLiftedWeight' started at 2026-10-05 21:48:18.413
-Test Case 'ForgeCoreTests.testTrainingMaxIsNeverCountedAsLiftedWeight' passed (0.001 seconds)
-Test Case 'ForgeCoreTests.testTypeSelectionPreservesLoggedSetsAndAvoidsDuplicates' started at 2026-10-05 21:48:18.415
-Test Case 'ForgeCoreTests.testTypeSelectionPreservesLoggedSetsAndAvoidsDuplicates' passed (0.0 seconds)
-Test Case 'ForgeCoreTests.testUndatedSelectionUsesFirstSavedDayInSundayOrder' started at 2026-10-05 21:48:18.415
-Test Case 'ForgeCoreTests.testUndatedSelectionUsesFirstSavedDayInSundayOrder' passed (0.0 seconds)
-Test Case 'ForgeCoreTests.testUnreviewedEntriesAreOptInAndChronologyIsExplicit' started at 2026-10-05 21:48:18.415
-Test Case 'ForgeCoreTests.testUnreviewedEntriesAreOptInAndChronologyIsExplicit' passed (0.008 seconds)
-Test Case 'ForgeCoreTests.testVolumeAndEstimatedMaxExcludeWarmupsAndIncompleteSets' started at 2026-10-05 21:48:18.424
+Test Case 'ForgeCoreTests.testTrainingMaxBeforeSchemeAndDecimalComma' started at 2026-10-06 16:22:03.132
+Test Case 'ForgeCoreTests.testTrainingMaxBeforeSchemeAndDecimalComma' passed (0.001 seconds)
+Test Case 'ForgeCoreTests.testTrainingMaxIsNeverCountedAsLiftedWeight' started at 2026-10-06 16:22:03.134
+Test Case 'ForgeCoreTests.testTrainingMaxIsNeverCountedAsLiftedWeight' passed (0.002 seconds)
+Test Case 'ForgeCoreTests.testTypeSelectionPreservesLoggedSetsAndAvoidsDuplicates' started at 2026-10-06 16:22:03.136
+Test Case 'ForgeCoreTests.testTypeSelectionPreservesLoggedSetsAndAvoidsDuplicates' passed (0.001 seconds)
+Test Case 'ForgeCoreTests.testUndatedSelectionUsesFirstSavedDayInSundayOrder' started at 2026-10-06 16:22:03.137
+Test Case 'ForgeCoreTests.testUndatedSelectionUsesFirstSavedDayInSundayOrder' passed (0.001 seconds)
+Test Case 'ForgeCoreTests.testUnreviewedEntriesAreOptInAndChronologyIsExplicit' started at 2026-10-06 16:22:03.138
+Test Case 'ForgeCoreTests.testUnreviewedEntriesAreOptInAndChronologyIsExplicit' passed (0.004 seconds)
+Test Case 'ForgeCoreTests.testVolumeAndEstimatedMaxExcludeWarmupsAndIncompleteSets' started at 2026-10-06 16:22:03.141
 Test Case 'ForgeCoreTests.testVolumeAndEstimatedMaxExcludeWarmupsAndIncompleteSets' passed (0.001 seconds)
-Test Suite 'ForgeCoreTests' passed at 2026-10-05 21:48:18.425
-	 Executed 27 tests, with 0 failures (0 unexpected) in 0.166 (0.166) seconds
-Test Suite 'debug.xctest' passed at 2026-10-05 21:48:18.425
-	 Executed 27 tests, with 0 failures (0 unexpected) in 0.166 (0.166) seconds
-Test Suite 'All tests' passed at 2026-10-05 21:48:18.425
-	 Executed 27 tests, with 0 failures (0 unexpected) in 0.166 (0.166) seconds
+Test Suite 'ForgeCoreTests' passed at 2026-10-06 16:22:03.142
+	 Executed 27 tests, with 0 failures (0 unexpected) in 0.368 (0.368) seconds
+Test Suite 'WendlerTests' started at 2026-10-06 16:22:03.142
+Test Case 'WendlerTests.testDisableAndImportOptOutDoNotGeneratePrescriptions' started at 2026-10-06 16:22:03.142
+Test Case 'WendlerTests.testDisableAndImportOptOutDoNotGeneratePrescriptions' passed (0.001 seconds)
+Test Case 'WendlerTests.testDraftsPartialSessionsAndFutureSessionsDoNotAdvanceCycle' started at 2026-10-06 16:22:03.144
+Test Case 'WendlerTests.testDraftsPartialSessionsAndFutureSessionsDoNotAdvanceCycle' passed (0.002 seconds)
+Test Case 'WendlerTests.testFixedPhaseTMIncreaseAndRoundingOverrides' started at 2026-10-06 16:22:03.146
+Test Case 'WendlerTests.testFixedPhaseTMIncreaseAndRoundingOverrides' passed (0.001 seconds)
+Test Case 'WendlerTests.testHistoricalMicroIncreaseAndLatestResetAreRespected' started at 2026-10-06 16:22:03.147
+Test Case 'WendlerTests.testHistoricalMicroIncreaseAndLatestResetAreRespected' passed (0.004 seconds)
+Test Case 'WendlerTests.testHistoryImportIsAdditiveAndIdempotentWithoutAdvancingDuplicates' started at 2026-10-06 16:22:03.151
+Test Case 'WendlerTests.testHistoryImportIsAdditiveAndIdempotentWithoutAdvancingDuplicates' passed (0.007 seconds)
+Test Case 'WendlerTests.testHistoryImportPreservesRepeatedIdenticalOccurrencesAndRejectsEmpty' started at 2026-10-06 16:22:03.158
+Test Case 'WendlerTests.testHistoryImportPreservesRepeatedIdenticalOccurrencesAndRejectsEmpty' passed (0.004 seconds)
+Test Case 'WendlerTests.testImportedDocumentOrderDoesNotSortTypoDatesOrInventYears' started at 2026-10-06 16:22:03.162
+Test Case 'WendlerTests.testImportedDocumentOrderDoesNotSortTypoDatesOrInventYears' passed (0.002 seconds)
+Test Case 'WendlerTests.testLatestIncreaseIsUsedRatherThanAnOldLargerIncrease' started at 2026-10-06 16:22:03.164
+Test Case 'WendlerTests.testLatestIncreaseIsUsedRatherThanAnOldLargerIncrease' passed (0.103 seconds)
+Test Case 'WendlerTests.testLatestPhaseMetadataWinsOverInconsistentActualReps' started at 2026-10-06 16:22:03.268
+Test Case 'WendlerTests.testLatestPhaseMetadataWinsOverInconsistentActualReps' passed (0.008 seconds)
+Test Case 'WendlerTests.testLiftCyclesAdvanceIndependentlyAndIgnoreSupplementalWork' started at 2026-10-06 16:22:03.275
+Test Case 'WendlerTests.testLiftCyclesAdvanceIndependentlyAndIgnoreSupplementalWork' passed (0.006 seconds)
+Test Case 'WendlerTests.testNoHistoryExplicitSetupStartsFivesAndMissingTMCannotGuessWeights' started at 2026-10-06 16:22:03.281
+Test Case 'WendlerTests.testNoHistoryExplicitSetupStartsFivesAndMissingTMCannotGuessWeights' passed (0.0 seconds)
+Test Case 'WendlerTests.testOptionalDeloadKeepsTMBeforeIncreasingAtNextCycle' started at 2026-10-06 16:22:03.282
+Test Case 'WendlerTests.testOptionalDeloadKeepsTMBeforeIncreasingAtNextCycle' passed (0.002 seconds)
+Test Case 'WendlerTests.testPrescriptionAndSettingsRoundTripAndRejectInvalidValues' started at 2026-10-06 16:22:03.284
+Test Case 'WendlerTests.testPrescriptionAndSettingsRoundTripAndRejectInvalidValues' passed (0.005 seconds)
+Test Case 'WendlerTests.testReopeningAndSelectingTypePreservesSnapshotAndCompletedSets' started at 2026-10-06 16:22:03.288
+Test Case 'WendlerTests.testReopeningAndSelectingTypePreservesSnapshotAndCompletedSets' passed (0.001 seconds)
+Test Case 'WendlerTests.testTemplateStartAndManualAdditionUseFreshUnloggedPrescriptions' started at 2026-10-06 16:22:03.290
+Test Case 'WendlerTests.testTemplateStartAndManualAdditionUseFreshUnloggedPrescriptions' passed (0.002 seconds)
+Test Case 'WendlerTests.testThreePhasesUseStandardPercentagesAndPlusTargets' started at 2026-10-06 16:22:03.292
+Test Case 'WendlerTests.testThreePhasesUseStandardPercentagesAndPlusTargets' passed (0.0 seconds)
+Test Suite 'WendlerTests' passed at 2026-10-06 16:22:03.292
+	 Executed 16 tests, with 0 failures (0 unexpected) in 0.15 (0.15) seconds
+Test Suite 'debug.xctest' passed at 2026-10-06 16:22:03.292
+	 Executed 43 tests, with 0 failures (0 unexpected) in 0.518 (0.518) seconds
+Test Suite 'All tests' passed at 2026-10-06 16:22:03.292
+	 Executed 43 tests, with 0 failures (0 unexpected) in 0.518 (0.518) seconds
 ◇ Test run started.
 ↳ Testing Library Version: 6.0.3 (18c42c19cac3faf)
 ✔ Test run with 0 tests passed after 0.001 seconds.

@@ -23,6 +23,12 @@
 			"path" = "Forge/Core/HistoryImporter.swift";
 			"sourceTree" = "<group>";
 		};
+		"3ED4CE5205FAF142B62E9102" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Forge/Core/HistoryMerge.swift";
+			"sourceTree" = "<group>";
+		};
 		"9FF7132061DE6B1764936E56" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
@@ -33,6 +39,12 @@
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
 			"path" = "Forge/Core/Training.swift";
+			"sourceTree" = "<group>";
+		};
+		"7D94511CA2FD37C055E87395" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Forge/Core/Wendler.swift";
 			"sourceTree" = "<group>";
 		};
 		"2FD90B1FA1F06A9F5669E4F5" = {
@@ -77,6 +89,12 @@
 			"path" = "Forge/Views/SettingsView.swift";
 			"sourceTree" = "<group>";
 		};
+		"6934134C14081AB3B8A85301" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Forge/Views/WendlerControls.swift";
+			"sourceTree" = "<group>";
+		};
 		"D17847BD0B029A5028D6950B" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "net.daringfireball.markdown";
@@ -113,6 +131,12 @@
 			"path" = "Tests/ForgeCoreTests/ForgeCoreTests.swift";
 			"sourceTree" = "<group>";
 		};
+		"74881597FE58E59F9175F067" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Tests/ForgeCoreTests/WendlerTests.swift";
+			"sourceTree" = "<group>";
+		};
 		"1EB3B7CB8355B1925187BCC2" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "net.daringfireball.markdown";
@@ -139,8 +163,10 @@
 				"7D539AF3EE2D83A56870DB0C",
 				"DDC44D95B093C5328331A100",
 				"032F66C7F0EC5AB216E65246",
+				"3ED4CE5205FAF142B62E9102",
 				"9FF7132061DE6B1764936E56",
 				"089BCBE0864E467E7FF88230",
+				"7D94511CA2FD37C055E87395",
 				"2FD90B1FA1F06A9F5669E4F5",
 				"68AEDC032C27A0F7FA4584DB",
 				"A7C29180039FF31895136493",
@@ -148,6 +174,7 @@
 				"6D6F01D54152A3425F411688",
 				"1F337D812756CF996AA14FF7",
 				"4AE802F8F55A9FA1E8A20AFE",
+				"6934134C14081AB3B8A85301",
 				"D17847BD0B029A5028D6950B",
 				"93EB5021CD9DBC29C127CC0B",
 				"D61B441B103E8D8EF62F3649",
@@ -161,6 +188,7 @@
 			"isa" = "PBXGroup";
 			"children" = (
 				"6B891D961247663618003B59",
+				"74881597FE58E59F9175F067",
 			);
 			"name" = "Tests";
 			"sourceTree" = "<group>";
@@ -196,6 +224,10 @@
 			"isa" = "PBXBuildFile";
 			"fileRef" = "032F66C7F0EC5AB216E65246";
 		};
+		"7D7A28E4A0BFC9E523213AAD" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "3ED4CE5205FAF142B62E9102";
+		};
 		"BD9E3135B32B2452A97E4B97" = {
 			"isa" = "PBXBuildFile";
 			"fileRef" = "9FF7132061DE6B1764936E56";
@@ -203,6 +235,10 @@
 		"A55E80CB55929F4E37FB74D0" = {
 			"isa" = "PBXBuildFile";
 			"fileRef" = "089BCBE0864E467E7FF88230";
+		};
+		"9D0D47B4D56AAAD968D895E0" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "7D94511CA2FD37C055E87395";
 		};
 		"4E9FA1DE5392EDB4FC8EE446" = {
 			"isa" = "PBXBuildFile";
@@ -232,6 +268,10 @@
 			"isa" = "PBXBuildFile";
 			"fileRef" = "4AE802F8F55A9FA1E8A20AFE";
 		};
+		"449312BBED6A489DE13ABAE7" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "6934134C14081AB3B8A85301";
+		};
 		"6ACE7BC297BF23705D4E5F56" = {
 			"isa" = "PBXSourcesBuildPhase";
 			"buildActionMask" = 2147483647;
@@ -239,8 +279,10 @@
 				"1930439595D045851415BAB9",
 				"6EBD60E1897DFF83177866ED",
 				"6DCD069082A07C95F715248E",
+				"7D7A28E4A0BFC9E523213AAD",
 				"BD9E3135B32B2452A97E4B97",
 				"A55E80CB55929F4E37FB74D0",
+				"9D0D47B4D56AAAD968D895E0",
 				"4E9FA1DE5392EDB4FC8EE446",
 				"0FB13B239A0BDAA138E77082",
 				"CCDE88B5E771E08EB51FD546",
@@ -248,6 +290,7 @@
 				"C90F0623478A6E095F1F7444",
 				"65FC96D75C455644C26AE918",
 				"EC19B36DE1D3877288938E72",
+				"449312BBED6A489DE13ABAE7",
 			);
 			"runOnlyForDeploymentPostprocessing" = 0;
 		};
@@ -285,15 +328,20 @@
 			);
 			"runOnlyForDeploymentPostprocessing" = 0;
 		};
-		"F4D3405B489EAB495DB04460" = {
+		"70D7B938A061EA418CB68C55" = {
 			"isa" = "PBXBuildFile";
 			"fileRef" = "6B891D961247663618003B59";
+		};
+		"C3656A595C74C6814F24A71A" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "74881597FE58E59F9175F067";
 		};
 		"DE2F315977E833CC2ECF764D" = {
 			"isa" = "PBXSourcesBuildPhase";
 			"buildActionMask" = 2147483647;
 			"files" = (
-				"F4D3405B489EAB495DB04460",
+				"70D7B938A061EA418CB68C55",
+				"C3656A595C74C6814F24A71A",
 			);
 			"runOnlyForDeploymentPostprocessing" = 0;
 		};
@@ -348,8 +396,8 @@
 			"buildSettings" = {
 				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
 				"CODE_SIGN_STYLE" = "Automatic";
-				"CURRENT_PROJECT_VERSION" = "2";
-				"MARKETING_VERSION" = "0.0.2";
+				"CURRENT_PROJECT_VERSION" = "3";
+				"MARKETING_VERSION" = "0.0.3";
 				"GENERATE_INFOPLIST_FILE" = "NO";
 				"INFOPLIST_FILE" = "Forge/Info.plist";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "com.yourname.Forge";
@@ -375,8 +423,8 @@
 			"buildSettings" = {
 				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
 				"CODE_SIGN_STYLE" = "Automatic";
-				"CURRENT_PROJECT_VERSION" = "2";
-				"MARKETING_VERSION" = "0.0.2";
+				"CURRENT_PROJECT_VERSION" = "3";
+				"MARKETING_VERSION" = "0.0.3";
 				"GENERATE_INFOPLIST_FILE" = "NO";
 				"INFOPLIST_FILE" = "Forge/Info.plist";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "com.yourname.Forge";
@@ -408,8 +456,8 @@
 			"isa" = "XCBuildConfiguration";
 			"buildSettings" = {
 				"CODE_SIGN_STYLE" = "Automatic";
-				"CURRENT_PROJECT_VERSION" = "2";
-				"MARKETING_VERSION" = "0.0.2";
+				"CURRENT_PROJECT_VERSION" = "3";
+				"MARKETING_VERSION" = "0.0.3";
 				"GENERATE_INFOPLIST_FILE" = "YES";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "com.yourname.ForgeTests";
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
@@ -433,8 +481,8 @@
 			"isa" = "XCBuildConfiguration";
 			"buildSettings" = {
 				"CODE_SIGN_STYLE" = "Automatic";
-				"CURRENT_PROJECT_VERSION" = "2";
-				"MARKETING_VERSION" = "0.0.2";
+				"CURRENT_PROJECT_VERSION" = "3";
+				"MARKETING_VERSION" = "0.0.3";
 				"GENERATE_INFOPLIST_FILE" = "YES";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "com.yourname.ForgeTests";
 				"PRODUCT_NAME" = "$(TARGET_NAME)";

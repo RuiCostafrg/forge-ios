@@ -7,6 +7,10 @@ struct SettingsView: View {
     @State private var importing = false
     @State private var backup = BackupDocument(data: Data())
     @State private var pendingRestore: Data?
+    @State private var importingNotes = false
+    @State private var pendingNotes: String?
+    @State private var pendingNoteCount = 0
+    @State private var confirmNotes = false
     @State private var confirmRestore = false
     @State private var confirmRecovery = false
     @State private var message: String?
@@ -31,7 +35,8 @@ struct SettingsView: View {
                         do { backup = BackupDocument(data: try ArchiveStorage.encode(store.archive)); exporting = true }
                         catch { message = error.localizedDescription }
                     } label: { Label("Export backup", systemImage: "square.and.arrow.up") }.disabled(store.storageBlocked)
-                    Button { importing = true } label: { Label("Restore backup", systemImage: "square.and.arrow.down") }
+                    Button { importingNotes = false; importing = true } label: { Label("Restore backup", systemImage: "square.and.arrow.down") }
+                    Button { importingNotes = true; importing = true } label: { Label("Import training notes (.md)", systemImage: "doc.badge.plus") }.disabled(store.storageBlocked)
                     Button { confirmRecovery = true } label: { Label("Recover previous saved revision", systemImage: "clock.arrow.circlepath") }
                 } header: { Text("Local data") } footer: {
                     Text("Backups include your sessions, program, and original notes. Choose On My iPhone in Files for a local copy. Restoring replaces current data; export a backup first. iOS device backups follow your phone’s backup settings.")
@@ -40,10 +45,10 @@ struct SettingsView: View {
                     LabeledContent("Imported entries", value: "\(store.sessions.filter { $0.sourceOrder != nil }.count)")
                     LabeledContent("Awaiting review", value: "\(store.sessions.filter(\.needsReview).count)")
                     NavigationLink("Read original T.md") { OriginalHistoryView(text: store.archive.originalHistory) }
-                    Text("Dates without a year stay unresolved. 5/3/1 scheme weights are stored as training maxima. Unclear values, bodyweight/max loads, and comments remain in the original notes for you to check.").font(.footnote).foregroundStyle(Theme.muted)
+                    Text("Dates without a year stay unresolved. 5/3/1 scheme weights are training maxima, not a 1RM. Suggestions use each lift’s phase labels in document order, including unreviewed imports. Recorded sets are kept exactly as written. Import another T.md to append new entries; repeated imports skip matching entries.").font(.footnote).foregroundStyle(Theme.muted)
                 }
                 Section("About") {
-                    LabeledContent("Version", value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.2")
+                    LabeledContent("Version", value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.3")
                     Text("Estimated 1RM uses the Epley formula for 1–12 reps. Volume sums external weight × repetitions for completed working sets. Warm-ups and unconfirmed imports are excluded from calendar totals.")
                         .font(.footnote).foregroundStyle(Theme.muted)
                 }
@@ -51,7 +56,7 @@ struct SettingsView: View {
                 .fileExporter(isPresented: $exporting, document: backup, contentType: .json, defaultFilename: "Forge-backup-" + GymCalendar.label(Date(), pattern: "yyyy-MM-dd")) { result in
                     if case .failure(let error) = result { message = error.localizedDescription }
                 }
-                .fileImporter(isPresented: $importing, allowedContentTypes: [.json]) { result in
+                .fileImporter(isPresented: $importing, allowedContentTypes: importingNotes ? [.plainText, .text, UTType(filenameExtension: "md") ?? .data] : [.json]) { result in
                     do {
                         let url = try result.get()
                         let access = url.startAccessingSecurityScopedResource()
@@ -59,10 +64,27 @@ struct SettingsView: View {
                         let size = try url.resourceValues(forKeys: [.fileSizeKey]).fileSize ?? 0
                         guard size <= 50_000_000 else { throw DataError.invalidBackup }
                         let data = try Data(contentsOf: url)
+                        if importingNotes {
+                            guard size <= 5_000_000, ["md", "txt"].contains(url.pathExtension.lowercased()),
+                                  let text = String(data: data, encoding: .utf8) else { throw DataError.invalidBackup }
+                            let preview = try HistoryMerge.preview(text, in: store.archive)
+                            if preview.added == 0 { message = "This history is already imported." }
+                            else { pendingNotes = text; pendingNoteCount = preview.added; confirmNotes = true }
+                            return
+                        }
                         _ = try ArchiveStorage.decode(data)
                         pendingRestore = data; confirmRestore = true
                     } catch { message = error.localizedDescription }
                 }
+                .confirmationDialog("Import \(pendingNoteCount) new history entries?", isPresented: $confirmNotes, titleVisibility: .visible) {
+                    Button("Import history") {
+                        guard let text = pendingNotes else { return }
+                        do { let count = try store.importHistory(text); message = "Imported \(count) new entries." }
+                        catch { message = error.localizedDescription }
+                        pendingNotes = nil
+                    }
+                    Button("Cancel", role: .cancel) { pendingNotes = nil }
+                } message: { Text("Existing sessions are kept. Dates without years stay unresolved; 5/3/1 suggestions use phase labels in document order.") }
                 .confirmationDialog("Replace current sessions and program with this backup?", isPresented: $confirmRestore, titleVisibility: .visible) {
                     Button("Restore backup", role: .destructive) {
                         guard let data = pendingRestore else { return }

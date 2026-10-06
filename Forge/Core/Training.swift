@@ -41,6 +41,10 @@ enum Training {
             var copy = target
             copy.id = UUID()
             copy.templateID = target.templateID ?? target.id
+            copy.prescription = nil
+            if let prescription = Wendler.suggest(for: target, in: archive, date: date, excluding: excluding) {
+                return Wendler.applying(prescription, to: copy)
+            }
             let weight = previousWeight(for: copy, in: archive, excluding: excluding)
             copy.sets = target.sets.map { set in
                 var copy = set
@@ -51,6 +55,23 @@ enum Training {
             }
             return copy
         }
+    }
+
+    static func addedExercise(_ name: String, in archive: Archive, date: Date?, excluding: UUID?) -> Exercise {
+        var exercise = Defaults.exercise(name)
+        // Use the saved lift's controls when adding it manually.
+        if let saved = archive.program.sorted(by: { $0.weekday < $1.weekday }).flatMap(\.exercises)
+            .first(where: { key($0.name) == key(name) }) {
+            exercise.wendler = saved.wendler
+            exercise.trainingMax = saved.trainingMax
+        }
+        if let prescription = Wendler.suggest(for: exercise, in: archive, date: date, excluding: excluding) {
+            return Wendler.applying(prescription, to: exercise)
+        }
+        if let weight = previousWeight(for: exercise, in: archive, excluding: excluding) {
+            for index in exercise.sets.indices { exercise.sets[index].weight = weight }
+        }
+        return exercise
     }
 
     static func makeSession(in archive: Archive, date: Date = Date(), split override: Split? = nil) -> Session {

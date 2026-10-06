@@ -35,6 +35,8 @@ struct Exercise: Identifiable, Codable, Equatable, Sendable {
     var trainingMax: Double? = nil
     var scheme: String? = nil
     var templateID: UUID? = nil
+    var wendler: WendlerSettings? = nil
+    var prescription: WendlerPrescription? = nil
     var volume: Double { sets.reduce(0) { $0 + $1.volume } }
 }
 
@@ -90,6 +92,8 @@ struct Archive: Codable, Equatable, Sendable {
                 guard exercise.sets.count <= 200, !exercise.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
                       Set(exercise.sets.map(\.id)).count == exercise.sets.count else { throw DataError.invalidBackup }
                 if let max = exercise.trainingMax, !max.isFinite || max < 0 || max > 2_000 { throw DataError.invalidBackup }
+                if let settings = exercise.wendler { try settings.validate() }
+                if let prescription = exercise.prescription { try prescription.validate() }
                 for set in exercise.sets {
                     guard set.weight.isFinite, set.weight >= 0, set.weight <= 2_000,
                           set.reps >= 0, set.reps <= 1_000 else { throw DataError.invalidBackup }

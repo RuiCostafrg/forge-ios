@@ -27,23 +27,24 @@ resources = ['Forge/Resources/TrainingHistory.md', 'Forge/Resources/SeedHistory.
 types = ['net.daringfireball.markdown', 'text.json', 'text.xml', 'folder.assetcatalog']
 resource_refs = [ref(p, t) for p, t in zip(resources, types)]
 info_ref = ref('Forge/Info.plist', 'text.plist.xml')
-test_source = ref('Tests/ForgeCoreTests/ForgeCoreTests.swift', 'sourcecode.swift')
+test_sources = sorted(p.relative_to(ROOT).as_posix() for p in (ROOT / 'Tests/ForgeCoreTests').rglob('*.swift'))
+test_refs = [ref(p, 'sourcecode.swift') for p in test_sources]
 readme_ref = ref('README.md', 'net.daringfireball.markdown')
 app_product = add('product:app', isa='PBXFileReference', explicitFileType='wrapper.application', includeInIndex=0, path='Forge.app', sourceTree='BUILT_PRODUCTS_DIR')
 test_product = add('product:tests', isa='PBXFileReference', explicitFileType='wrapper.cfbundle', includeInIndex=0, path='ForgeTests.xctest', sourceTree='BUILT_PRODUCTS_DIR')
 app_group = add('group:app', isa='PBXGroup', children=source_refs + resource_refs + [info_ref], name='Forge', sourceTree='<group>')
-test_group = add('group:tests', isa='PBXGroup', children=[test_source], name='Tests', sourceTree='<group>')
+test_group = add('group:tests', isa='PBXGroup', children=test_refs, name='Tests', sourceTree='<group>')
 products_group = add('group:products', isa='PBXGroup', children=[app_product, test_product], name='Products', sourceTree='<group>')
 main_group = add('group:main', isa='PBXGroup', children=[app_group, test_group, readme_ref, products_group], sourceTree='<group>')
 app_sources_phase = add('phase:app:sources', isa='PBXSourcesBuildPhase', buildActionMask=2147483647, files=[build(r, p) for r, p in zip(source_refs, app_sources)], runOnlyForDeploymentPostprocessing=0)
 app_resources_phase = add('phase:app:resources', isa='PBXResourcesBuildPhase', buildActionMask=2147483647, files=[build(r, p) for r, p in zip(resource_refs, resources)], runOnlyForDeploymentPostprocessing=0)
 app_frameworks_phase = add('phase:app:frameworks', isa='PBXFrameworksBuildPhase', buildActionMask=2147483647, files=[], runOnlyForDeploymentPostprocessing=0)
-test_sources_phase = add('phase:tests:sources', isa='PBXSourcesBuildPhase', buildActionMask=2147483647, files=[build(test_source, 'test-source')], runOnlyForDeploymentPostprocessing=0)
+test_sources_phase = add('phase:tests:sources', isa='PBXSourcesBuildPhase', buildActionMask=2147483647, files=[build(r, p) for r, p in zip(test_refs, test_sources)], runOnlyForDeploymentPostprocessing=0)
 test_frameworks_phase = add('phase:tests:frameworks', isa='PBXFrameworksBuildPhase', buildActionMask=2147483647, files=[], runOnlyForDeploymentPostprocessing=0)
 
 common = {'CLANG_ENABLE_MODULES': 'YES', 'IPHONEOS_DEPLOYMENT_TARGET': '17.0', 'SDKROOT': 'iphoneos', 'SWIFT_VERSION': '5.0', 'ENABLE_USER_SCRIPT_SANDBOXING': 'YES'}
-app_common = {'ASSETCATALOG_COMPILER_APPICON_NAME': 'AppIcon', 'CODE_SIGN_STYLE': 'Automatic', 'CURRENT_PROJECT_VERSION': '2', 'MARKETING_VERSION': '0.0.2', 'GENERATE_INFOPLIST_FILE': 'NO', 'INFOPLIST_FILE': 'Forge/Info.plist', 'PRODUCT_BUNDLE_IDENTIFIER': 'com.yourname.Forge', 'PRODUCT_NAME': '$(TARGET_NAME)', 'TARGETED_DEVICE_FAMILY': '1', 'SUPPORTED_PLATFORMS': 'iphoneos iphonesimulator', 'SUPPORTS_MACCATALYST': 'NO', 'LD_RUNPATH_SEARCH_PATHS': ['$(inherited)', '@executable_path/Frameworks'], 'ENABLE_PREVIEWS': 'YES'}
-test_common = {'CODE_SIGN_STYLE': 'Automatic', 'CURRENT_PROJECT_VERSION': '2', 'MARKETING_VERSION': '0.0.2', 'GENERATE_INFOPLIST_FILE': 'YES', 'PRODUCT_BUNDLE_IDENTIFIER': 'com.yourname.ForgeTests', 'PRODUCT_NAME': '$(TARGET_NAME)', 'TARGETED_DEVICE_FAMILY': '1', 'TEST_HOST': '$(BUILT_PRODUCTS_DIR)/Forge.app/Forge', 'BUNDLE_LOADER': '$(TEST_HOST)', 'LD_RUNPATH_SEARCH_PATHS': ['$(inherited)', '@executable_path/Frameworks', '@loader_path/Frameworks']}
+app_common = {'ASSETCATALOG_COMPILER_APPICON_NAME': 'AppIcon', 'CODE_SIGN_STYLE': 'Automatic', 'CURRENT_PROJECT_VERSION': '3', 'MARKETING_VERSION': '0.0.3', 'GENERATE_INFOPLIST_FILE': 'NO', 'INFOPLIST_FILE': 'Forge/Info.plist', 'PRODUCT_BUNDLE_IDENTIFIER': 'com.yourname.Forge', 'PRODUCT_NAME': '$(TARGET_NAME)', 'TARGETED_DEVICE_FAMILY': '1', 'SUPPORTED_PLATFORMS': 'iphoneos iphonesimulator', 'SUPPORTS_MACCATALYST': 'NO', 'LD_RUNPATH_SEARCH_PATHS': ['$(inherited)', '@executable_path/Frameworks'], 'ENABLE_PREVIEWS': 'YES'}
+test_common = {'CODE_SIGN_STYLE': 'Automatic', 'CURRENT_PROJECT_VERSION': '3', 'MARKETING_VERSION': '0.0.3', 'GENERATE_INFOPLIST_FILE': 'YES', 'PRODUCT_BUNDLE_IDENTIFIER': 'com.yourname.ForgeTests', 'PRODUCT_NAME': '$(TARGET_NAME)', 'TARGETED_DEVICE_FAMILY': '1', 'TEST_HOST': '$(BUILT_PRODUCTS_DIR)/Forge.app/Forge', 'BUNDLE_LOADER': '$(TEST_HOST)', 'LD_RUNPATH_SEARCH_PATHS': ['$(inherited)', '@executable_path/Frameworks', '@loader_path/Frameworks']}
 
 def configs(label, base):
     values = []
@@ -103,4 +104,4 @@ test_ref = reference(test_target, 'ForgeTests', 'ForgeTests.xctest')
 workspace = project_dir / 'project.xcworkspace'
 workspace.mkdir(exist_ok=True)
 (workspace / 'contents.xcworkspacedata').write_text('<?xml version="1.0" encoding="UTF-8"?><Workspace version="1.0"><FileRef location="self:"/></Workspace>\n')
-print(f'Generated {project_dir.name}: {len(app_sources)} app sources, 1 test source, {len(resources)} resources.')
+print(f'Generated {project_dir.name}: {len(app_sources)} app sources, {len(test_sources)} test sources, {len(resources)} resources.')

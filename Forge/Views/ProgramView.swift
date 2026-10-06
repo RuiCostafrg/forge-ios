@@ -27,7 +27,7 @@ struct ProgramView: View {
                             }.gymCard()
                         }.buttonStyle(.plain)
                     }
-                    Text("This is a starting template. Weights are copied from your last recorded session when you start a workout; sets and rep targets come from your program. You can choose any workout on any day.")
+                    Text("Main lifts with 5/3/1 history get the next phase and percentage weights automatically. Other exercises use your saved targets and last confirmed working weight. Open an exercise’s 5/3/1 settings to override or disable suggestions.")
                         .font(.footnote).foregroundStyle(Theme.muted).padding(.top, 6)
                 }.padding(20)
             }.gymScreen().navigationTitle("Your program")

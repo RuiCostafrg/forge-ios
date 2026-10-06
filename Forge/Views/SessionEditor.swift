@@ -20,7 +20,7 @@ struct SessionEditor: View {
                     if !draft.finished && draft.sourceOrder == nil { restTimer }
                     if draft.needsReview { reviewCard }
                     ForEach($draft.exercises) { $exercise in
-                        ExerciseCard(exercise: $exercise, sessionID: draft.id, onSetCompletion: { completed in
+                        ExerciseCard(exercise: $exercise, sessionID: draft.id, sessionDate: draft.date, sessionFinished: draft.finished, onSetCompletion: { completed in
                             if !draft.finished {
                                 draft.restEndsAt = completed ? Date().addingTimeInterval(Double(draft.restDuration)) : nil
                             }
@@ -63,12 +63,7 @@ struct SessionEditor: View {
                 }
                 .sheet(isPresented: $pickingExercise) {
                     ExercisePicker { name in
-                        var exercise = Defaults.exercise(name)
-                        if let last = Analytics.lastExercise(name, sessions: store.sessions, excluding: draft.id) {
-                            let weights = last.sets.filter { $0.completed && !$0.warmup }
-                            for index in exercise.sets.indices where !weights.isEmpty { exercise.sets[index].weight = weights[min(index, weights.count - 1)].weight }
-                        }
-                        draft.exercises.append(exercise)
+                        draft.exercises.append(Training.addedExercise(name, in: store.archive, date: draft.date, excluding: draft.id))
                     }
                 }
                 .onChange(of: draft) { _, value in if !deleted { store.save(value) } }
@@ -146,6 +141,8 @@ struct ExerciseCard: View {
     @EnvironmentObject var store: AppStore
     @Binding var exercise: Exercise
     var sessionID: UUID? = nil
+    var sessionDate: Date? = nil
+    var sessionFinished = false
     var template = false
     var onSetCompletion: ((Bool) -> Void)? = nil
     var remove: () -> Void
@@ -178,6 +175,28 @@ struct ExerciseCard: View {
                     if let max = exercise.trainingMax { Text("TM \(kg(max)) kg").font(.caption).foregroundStyle(Theme.muted) }
                 }
             }
+            if let prescription = exercise.prescription, !template {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("5/3/1 suggestion · \(prescription.phase.rawValue)").font(.subheadline.bold()).foregroundStyle(Theme.mint)
+                    Text("TM \(kg(prescription.trainingMax)) kg · round to \(kg(prescription.rounding)) kg · cycle +\(kg(prescription.cycleIncrease)) kg")
+                        .font(.caption).foregroundStyle(Theme.muted)
+                    Text(prescription.sourceLabel).font(.caption2).foregroundStyle(Theme.muted)
+                    Text("Final working set: minimum reps shown; + means extra reps are optional. All sets and weights remain editable.")
+                        .font(.caption2).foregroundStyle(Theme.muted)
+                }
+            }
+            if Wendler.liftName(exercise.name) != nil && (template || (exercise.prescription != nil && !sessionFinished)) {
+                WendlerControls(exercise: $exercise, template: template)
+                if !template {
+                    Button("Recalculate 5/3/1 sets") {
+                        if let suggestion = Wendler.suggest(for: exercise, in: store.archive, date: sessionDate, excluding: sessionID) {
+                            exercise = Wendler.applying(suggestion, to: exercise)
+                        }
+                    }.font(.footnote).disabled(exercise.sets.contains(where: \.completed) || exercise.wendler?.enabled == false)
+                    Text("Recalculation replaces unlogged sets. Once a set is complete, edit individual sets to preserve your logged work.")
+                        .font(.caption2).foregroundStyle(Theme.muted)
+                }
+            }
             HStack {
                 Text("SET").frame(width: 32)
                 Text("KG").frame(maxWidth: .infinity)
@@ -198,10 +217,12 @@ struct ExerciseCard: View {
             DisclosureGroup("Notes & training details") {
                 VStack(alignment: .leading, spacing: 12) {
                     TextField("Technique, equipment, or comments", text: $exercise.note, axis: .vertical).font(.subheadline).lineLimit(2...6)
-                    TextField("Scheme (optional, e.g. 5/3/1)", text: Binding(get: { exercise.scheme ?? "" }, set: { exercise.scheme = $0.isEmpty ? nil : $0 })).font(.subheadline)
-                    Toggle("Track a training max", isOn: Binding(get: { exercise.trainingMax != nil }, set: { exercise.trainingMax = $0 ? 0 : nil })).font(.subheadline)
-                    if exercise.trainingMax != nil {
-                        HStack { Text("Training max · kg").font(.subheadline); Spacer(); WeightInput(value: Binding(get: { exercise.trainingMax ?? 0 }, set: { exercise.trainingMax = $0 })).frame(width: 100) }
+                    if exercise.prescription == nil {
+                        TextField("Scheme (optional, e.g. 5/3/1)", text: Binding(get: { exercise.scheme ?? "" }, set: { exercise.scheme = $0.isEmpty ? nil : $0 })).font(.subheadline)
+                        Toggle("Track a training max", isOn: Binding(get: { exercise.trainingMax != nil }, set: { exercise.trainingMax = $0 ? 0 : nil })).font(.subheadline)
+                        if exercise.trainingMax != nil {
+                            HStack { Text("Training max · kg").font(.subheadline); Spacer(); WeightInput(value: Binding(get: { exercise.trainingMax ?? 0 }, set: { exercise.trainingMax = $0 })).frame(width: 100) }
+                        }
                     }
                 }.padding(.top, 12)
             }.font(.caption).foregroundStyle(Theme.muted)
