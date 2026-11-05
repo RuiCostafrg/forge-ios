@@ -1,3 +1,5 @@
+![forge-ios banner](assets/readme-banner.svg)
+
 # Forge — local iPhone gym tracker
 
 A native SwiftUI gym tracker for iOS 17+. Track weights, repetitions, sets, and notes with an editable Push/Pull/Legs/Upper/Lower weekly program. The interface is English, weights are in kilograms, and weeks start on Sunday.
